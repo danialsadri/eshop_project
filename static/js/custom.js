@@ -3,9 +3,7 @@ function sendArticleComment(articleId) {
     var parentId = $('#parent_id').val();
     console.log(parentId);
     $.get('/articles/add-article-comment', {
-        article_comment: comment,
-        article_id: articleId,
-        parent_id: parentId
+        article_comment: comment, article_id: articleId, parent_id: parentId
     }).then(res => {
         $('#comments_area').html(res);
         $('#commentText').val('');

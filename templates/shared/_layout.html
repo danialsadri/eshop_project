@@ -11,9 +11,11 @@
     {% block header_references %}{% endblock %}
 </head>
 <body>
+
 {% render_partial 'home_module.views.site_header_component' %}
 {% block content %}{% endblock %}
 {% render_partial 'home_module.views.site_footer_component' %}
+
 {% include 'shared/footer_references.html' %}
 {% block footer_references %}{% endblock %}
 </body>

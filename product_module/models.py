@@ -69,7 +69,7 @@ class Product(models.Model):
         verbose_name_plural = 'محصولات'
 
     def get_absolute_url(self):
-        return reverse(viewname='product-detail', args=[self.slug])
+        return reverse(viewname='products:product-detail', args=[self.slug])
 
     def save(self, *args, **kwargs):
         # self.slug = slugify(self.title)

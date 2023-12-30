@@ -86,6 +86,6 @@ def product_categories_component(request: HttpRequest):
 
 
 def product_brands_component(request: HttpRequest):
-    product_brands = ProductBrand.objects.annotate(products_count=Count('product')).filter(is_active=True)
+    product_brands = ProductBrand.objects.annotate(products_count=Count('product_brands')).filter(is_active=True)
     context = {'brands': product_brands}
     return render(request, 'product_module/components/product_brands_component.html', context)

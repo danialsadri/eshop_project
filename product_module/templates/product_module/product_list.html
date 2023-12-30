@@ -32,7 +32,6 @@
                                     <li><a class="cursor-pointer" onclick="fillPage({{ page_obj.next_page_number }})">بعدی</a>
                                     </li>
                                 {% endif %}
-
                             </ul>
                         </div><!--features_items-->
                     {% else %}
@@ -41,25 +40,16 @@
                         </div>
                     {% endif %}
                 </div>
-
                 <div class="col-sm-3">
                     <div class="left-sidebar">
                         {% render_partial 'product_module.views.product_categories_component' %}
                         {% render_partial 'product_module.views.product_brands_component' %}
-
-
                         <div class="price-range"><!--price-range-->
                             <h2>فیلتـر قیمـت</h2>
                             <div class="well">
-                                <input
-                                        type="text"
-                                        class="span2"
-                                        value="{{ start_price }},{{ end_price }}"
-                                        data-slider-min="0"
-                                        data-slider-max="{{ db_max_price }}"
-                                        data-slider-step="1000"
-                                        data-slider-value="[{{ start_price }},{{ end_price }}]"
-                                        id="sl2">
+                                <input type="text" class="span2" value="{{ start_price }},{{ end_price }}"
+                                       data-slider-min="0" data-slider-max="{{ db_max_price }}" data-slider-step="1000"
+                                       data-slider-value="[{{ start_price }},{{ end_price }}]" id="sl2">
                                 <br/>
                                 <b>{{ db_max_price }}</b> <b class="pull-left">0</b>
                             </div>
@@ -81,10 +71,8 @@
                             <br>
                             <br>
                         </div><!--/shipping-->
-
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
