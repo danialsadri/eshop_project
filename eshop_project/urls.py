@@ -12,7 +12,7 @@ urlpatterns = [
     path('user/', include('user_panel_module.urls')),
     path('order/', include('order_module.urls')),
     path('admin/', admin.site.urls),
-    path('admin_panel/', include('admin_panel.urls'))
+    path('admin_panel/', include('admin_panel.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
