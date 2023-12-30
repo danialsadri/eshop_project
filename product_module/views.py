@@ -10,8 +10,8 @@ from .models import Product, ProductCategory, ProductBrand, ProductVisit, Produc
 
 
 class ProductListView(ListView):
-    template_name = 'product_module/product_list.html'
     model = Product
+    template_name = 'product_module/product_list.html'
     context_object_name = 'products'
     ordering = ['-price']
     paginate_by = 6
@@ -36,13 +36,10 @@ class ProductListView(ListView):
         end_price = request.GET.get('end_price')
         if start_price is not None:
             query = query.filter(price__gte=start_price)
-
         if end_price is not None:
             query = query.filter(price__lte=end_price)
-
         if brand_name is not None:
             query = query.filter(brand__url_title__iexact=brand_name)
-
         if category_name is not None:
             query = query.filter(category__url_title__iexact=category_name)
         return query

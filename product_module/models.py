@@ -45,13 +45,11 @@ class ProductBrand(models.Model):
 
 class Product(models.Model):
     category = models.ManyToManyField(ProductCategory, related_name='product_categories', verbose_name='دسته بندی ها')
-    brand = models.ForeignKey(ProductBrand, on_delete=models.CASCADE, related_name='product_brands', null=True,
-                              blank=True, verbose_name='برند')
+    brand = models.ForeignKey(ProductBrand, on_delete=models.CASCADE, related_name='product_brands', blank=True, null=True, verbose_name='برند')
     title = models.CharField(max_length=200, verbose_name='نام محصول')
-    slug = models.SlugField(max_length=200, blank=True, null=False, unique=True, default="",
-                            verbose_name='عنوان در url')
-    short_description = models.CharField(max_length=500, verbose_name='توضیحات کوتاه')
-    description = models.TextField(max_length=1000, verbose_name='توضیحات اصلی')
+    slug = models.SlugField(max_length=200, default="", null=False, unique=True, verbose_name='عنوان در url')
+    short_description = models.CharField(max_length=500, blank=True, null=True, verbose_name='توضیحات کوتاه')
+    description = models.TextField(max_length=1000, blank=True, null=True, verbose_name='توضیحات اصلی')
     price = models.PositiveBigIntegerField(verbose_name='قیمت')
     image = models.ImageField(upload_to='images/products', blank=True, null=True, verbose_name='تصویر محصول')
     is_active = models.BooleanField(default=False, verbose_name='فعال / غیرفعال')
