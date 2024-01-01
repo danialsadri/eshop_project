@@ -1,7 +1,6 @@
 <h2>دسته بندی مقالات</h2>
 <div class="panel-group category-products" id="accordian"><!--category-productsr-->
 
-
     {% for main_category in main_categories %}
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -24,15 +23,14 @@
                     <div class="panel-body">
                         <ul>
                             {% for sub_category in main_category.articlecategory_set.all %}
-                                <li><a href="{% url 'articles_by_category_list' category=sub_category.url_title %}"> {{ sub_category.title }} </a></li>
+                                <li>
+                                    <a href="{% url 'articles_by_category_list' category=sub_category.url_title %}"> {{ sub_category.title }} </a>
+                                </li>
                             {% endfor %}
-
                         </ul>
                     </div>
                 </div>
             {% endif %}
         </div>
     {% endfor %}
-
-
 </div>

@@ -37,7 +37,6 @@
 								</span>
                                 </div>
                                 <a href="">
-
                                     {% thumbnail article.image "862x398" quality=95 crop='center' as im %}
                                         <img src="{{ im.url }}">
                                     {% endthumbnail %}
@@ -49,9 +48,6 @@
                                     مطلب</a>
                             </div>
                         {% endfor %}
-
-
-
                         <ul class="pagination">
                             {% if page_obj.has_previous %}
                                 <li><a href="?page={{ page_obj.previous_page_number }}">قبلی</a></li>
@@ -64,21 +60,17 @@
                             {% if page_obj.has_next %}
                                 <li><a href="?page={{ page_obj.next_page_number }}">بعدی</a></li>
                             {% endif %}
-
                         </ul>
                     </div>
                 </div>
-
                 <div class="col-sm-3">
                     <div class="left-sidebar">
                         {% render_partial 'article_module.views.article_categories_component' %}
                         <div class="shipping text-center"><!--shipping-->
                             <img src="/static/images/home/shipping.jpg" alt="">
                         </div><!--/shipping-->
-
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
