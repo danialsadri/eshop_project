@@ -71,10 +71,6 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse(viewname='products:product-detail', args=[self.slug])
 
-    def save(self, *args, **kwargs):
-        # self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
-
 
 class ProductTag(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product_tags', verbose_name='محصول')
@@ -93,8 +89,8 @@ class ProductTag(models.Model):
 
 
 class ProductVisit(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='visits', null=True, blank=True, verbose_name='کاربر')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='visits', verbose_name='محصول')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='visits', null=True, blank=True, verbose_name='کاربر')
     ip = models.CharField(max_length=30, verbose_name='آی پی کاربر')
 
     def __str__(self):

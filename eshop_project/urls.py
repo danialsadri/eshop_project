@@ -16,3 +16,8 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.sites.AdminSite.site_title = "پنل مدیریت"
+admin.sites.AdminSite.site_header = "پنل مدیریت"
+admin.sites.AdminSite.index_title = "پنل مدیریت"

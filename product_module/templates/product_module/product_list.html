@@ -8,7 +8,6 @@
     <section>
         <div class="container">
             <div class="row">
-
                 <div class="col-sm-9 padding-right">
                     {% if products %}
                         <div class="features_items"><!--features_items-->
@@ -20,7 +19,7 @@
                             <ul class="pagination">
                                 {% if page_obj.has_previous %}
                                     <li><a class="cursor-pointer"
-                                           onclick="fillPage({{ page_obj.previous_page_number }})">قبلی</a></li>
+                                           onclick="fillPage({{ page_obj.previous_page_number }}">قبلی</a></li>
                                 {% endif %}
                                 {% for pageNumber in paginator.page_range %}
                                     <li class="{% if page_obj.number == pageNumber %} active {% endif %}">
