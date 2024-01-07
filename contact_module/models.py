@@ -19,19 +19,3 @@ class ContactUs(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class UserProfile(models.Model):
-    image = models.ImageField(upload_to='images', verbose_name='تصویر')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='زمان ایجاد')
-
-    class Meta:
-        ordering = ['-created']
-        verbose_name = 'عکس پروفایل کاربر'
-        verbose_name_plural = 'لیست عکس پروفایل کاربر'
-
-    def __str__(self):
-        return self.image.name
-
-    def get_image_file(self):
-        return format_html(f"<img src='{self.image.url}' alt='{self.image.name}' width='50' href='70'>")
