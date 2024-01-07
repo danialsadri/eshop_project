@@ -1,3 +1,4 @@
+from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from site_module.models import SiteSetting
@@ -8,12 +9,11 @@ from .models import UserProfile
 class ContactUsView(CreateView):
     form_class = ContactUsModelForm
     template_name = 'contact_module/contact_us_page.html'
-    success_url = '/contact-us/'
+    success_url = reverse_lazy('contact_us:contact_us_page')
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        setting: SiteSetting = SiteSetting.objects.filter(is_main_setting=True).first()
-        context['site_setting'] = setting
+        context['site_setting'] = SiteSetting.objects.filter(is_main_setting=True).first()
         return context
 
 
@@ -24,10 +24,10 @@ def store_file(file):
 
 
 class CreateProfileView(CreateView):
-    template_name = 'contact_module/create_profile_page.html'
     model = UserProfile
     fields = '__all__'
-    success_url = '/contact-us/create-profile'
+    template_name = 'contact_module/create_profile_page.html'
+    success_url = reverse_lazy('contact_us:create_profile_page')
 
 
 class ProfilesView(ListView):

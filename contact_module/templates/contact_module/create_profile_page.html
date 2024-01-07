@@ -1,8 +1,6 @@
 {% extends 'shared/_layout.html' %}
 
-{% block title %}
-    تماس با ما
-{% endblock %}
+{% block title %}تماس با ما{% endblock %}
 
 {% block content %}
     <div id="contact-page" class="container">
@@ -12,8 +10,7 @@
                     <div class="contact-form">
                         <h2 class="title text-center">ثبت پروفایل</h2>
                         <div class="status alert alert-success" style="display: none"></div>
-                        <form id="main-contact-form" class="contact-form row" action="{% url 'create_profile_page' %}"
-                              method="post" enctype="multipart/form-data">
+                        <form id="main-contact-form" class="contact-form row" action="{% url 'contact_us:create_profile_page' %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form }}
                             <div class="form-group col-md-12">
