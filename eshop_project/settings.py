@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'eshop_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 AUTH_USER_MODEL = 'account_module.User'
-LOGIN_URL = '/login'
+LOGIN_URL = 'accounts/login'
 
 DATABASES = {
     'default': {
@@ -131,8 +131,6 @@ MEDIA_ROOT = BASE_DIR / 'uploads'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# SESSION_COOKIE_AGE = 120
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
