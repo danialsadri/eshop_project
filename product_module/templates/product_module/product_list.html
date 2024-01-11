@@ -18,18 +18,15 @@
                             <div class="clearfix"></div>
                             <ul class="pagination">
                                 {% if page_obj.has_previous %}
-                                    <li><a class="cursor-pointer"
-                                           onclick="fillPage({{ page_obj.previous_page_number }}">قبلی</a></li>
+                                    <li><a class="cursor-pointer" onclick="fillPage({{ page_obj.previous_page_number }}">قبلی</a></li>
                                 {% endif %}
                                 {% for pageNumber in paginator.page_range %}
                                     <li class="{% if page_obj.number == pageNumber %} active {% endif %}">
-                                        <a class="cursor-pointer"
-                                           onclick="fillPage({{ pageNumber }})">{{ pageNumber }}</a>
+                                        <a class="cursor-pointer" onclick="fillPage({{ pageNumber }})">{{ pageNumber }}</a>
                                     </li>
                                 {% endfor %}
                                 {% if page_obj.has_next %}
-                                    <li><a class="cursor-pointer" onclick="fillPage({{ page_obj.next_page_number }})">بعدی</a>
-                                    </li>
+                                    <li><a class="cursor-pointer" onclick="fillPage({{ page_obj.next_page_number }})">بعدی</a></li>
                                 {% endif %}
                             </ul>
                         </div><!--features_items-->
