@@ -10,7 +10,7 @@ def permission_checker_decorator_factory(data=None):
             if request.user.is_authenticated and request.user.is_superuser:
                 return func(request, *args, **kwargs)
             else:
-                return redirect(reverse('login_page'))
+                return redirect(reverse('accounts:login_page'))
 
         return wrapper
 

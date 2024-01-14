@@ -21,10 +21,9 @@ class RegisterView(View):
             user_password = register_form.cleaned_data.get('password')
             user: bool = User.objects.filter(email__iexact=user_email).exists()
             if user:
-                register_form.add_error('email', 'ایمیل وارد شده تکراری می باشد')
+                register_form.add_error(field='email', error='ایمیل وارد شده تکراری می باشد')
             else:
-                new_user = User(email=user_email, email_active_code=get_random_string(72),
-                                is_active=False, username=user_email)
+                new_user = User(username=user_email, email=user_email, email_active_code=get_random_string(72), is_active=False)
                 new_user.set_password(user_password)
                 new_user.save()
                 send_email('فعالسازی حساب کاربری', new_user.email, {'user': new_user}, 'emails/activate_account.html')
@@ -41,7 +40,7 @@ class ActivateAccountView(View):
                 user.email_active_code = get_random_string(72)
                 user.save()
                 # todo: show success message to user
-                return redirect(reverse('login_page'))
+                return redirect(reverse('accounts:login_page'))
             else:
                 # todo: show your account was activated message to user
                 pass
@@ -77,8 +76,7 @@ class LoginView(View):
 class ForgetPasswordView(View):
     def get(self, request: HttpRequest):
         forget_pass_form = ForgotPasswordForm()
-        context = {'forget_pass_form': forget_pass_form}
-        return render(request, 'account_module/forgot_password.html', context)
+        return render(request, 'account_module/forgot_password.html', {'forget_pass_form': forget_pass_form})
 
     def post(self, request: HttpRequest):
         forget_pass_form = ForgotPasswordForm(request.POST)
@@ -97,8 +95,7 @@ class ResetPasswordView(View):
         if user is None:
             return redirect(reverse('accounts:login_page'))
         reset_pass_form = ResetPasswordForm()
-        context = {'reset_pass_form': reset_pass_form, 'user': user}
-        return render(request, 'account_module/reset_password.html', context)
+        return render(request, 'account_module/reset_password.html', {'reset_pass_form': reset_pass_form, 'user': user})
 
     def post(self, request: HttpRequest, active_code):
         reset_pass_form = ResetPasswordForm(request.POST)
@@ -111,6 +108,7 @@ class ResetPasswordView(View):
             user.email_active_code = get_random_string(72)
             user.is_active = True
             user.save()
+            return redirect(reverse('home:home_page'))
         return render(request, 'account_module/reset_password.html', {'reset_pass_form': reset_pass_form, 'user': user})
 
 

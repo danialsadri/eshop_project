@@ -79,6 +79,7 @@ WSGI_APPLICATION = 'eshop_project.wsgi.application'
 
 AUTH_USER_MODEL = 'account_module.User'
 LOGIN_URL = 'accounts/login'
+LOGOUT_URL = 'accounts/logout'
 
 DATABASES = {
     'default': {
