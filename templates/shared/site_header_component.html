@@ -27,16 +27,9 @@
     <div class="header-middle"><!--header-middle-->
         <div class="container">
             <div class="row">
-                <!-- <div class="col-sm-4 header-middle-menu">
-                    <div class="shop-menu pull-left">
-                        <ul class="nav navbar-nav">
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> پرداخت</a></li>
-                        </ul>
-                    </div>
-                </div> -->
                 <div class="col-sm-4" style="text-align: left;">
                     <div class="logo">
-                        <a href="#"><img src="{{ site_setting.site_logo.url }}" alt="Logo" style="text-align: center;"/></a>
+                        <a href="{% url 'home:home_page' %}"><img src="{{ site_setting.site_logo.url }}" alt="Logo" style="text-align: center;"/></a>
                     </div>
                 </div>
                 <div class="col-sm-8 header-middle-menu">
@@ -46,11 +39,9 @@
                                 {% if request.user.is_superuser %}
                                     <li><a href="/admin"><i class="fa fa-user"></i> پنل ادمین</a></li>
                                 {% endif %}
-                                <li><a href="{% url 'users:user_basket_page' %}"><i class="fa fa-shopping-cart"></i> سبد
-                                    خرید</a>
+                                <li><a href="{% url 'users:user_basket_page' %}"><i class="fa fa-shopping-cart"></i>سبد خرید</a>
                                 </li>
-                                <li><a href="{% url 'users:user_panel_dashboard' %}"><i class="fa fa-user"></i> پنل
-                                    کاربری</a>
+                                <li><a href="{% url 'users:user_panel_dashboard' %}"><i class="fa fa-user"></i> پنل کاربری</a>
                                 </li>
                                 <li><a href="{% url 'accounts:logout_page' %}"><i class="fa fa-sign-out"></i> خروج</a>
                                 </li>
@@ -87,29 +78,23 @@
                     <div class="mainmenu pull-right">
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li>
-                                <a class="{% if request.resolver_match.url_name == 'home_page' %}active{% endif %}"
-                                   href="{% url 'home:home_page' %}">خـانه</a>
+                                <a class="{% if request.resolver_match.url_name == 'home_page' %}active{% endif %}" href="{% url 'home:home_page' %}">خـانه</a>
                             </li>
                             <li>
-                                <a class="{% if request.resolver_match.url_name == 'product-list' %}active{% endif %}"
-                                   href="{% url 'products:product-list' %}">محصولات</a>
+                                <a class="{% if request.resolver_match.url_name == 'product-list' %}active{% endif %}" href="{% url 'products:product-list' %}">محصولات</a>
                             </li>
                             <li>
-                                <a class="{% if request.resolver_match.url_name == 'articles_list' %}active{% endif %}"
-                                   href="{% url 'articles:articles_list' %}">مقالات</a>
+                                <a class="{% if request.resolver_match.url_name == 'articles_list' %}active{% endif %}" href="{% url 'articles:articles_list' %}">مقالات</a>
                             </li>
                             <li>
-                                <a class="{% if request.resolver_match.url_name == 'about_page' %}active{% endif %}"
-                                   href="{% url 'home:about_page' %}">درباره مـا </a>
+                                <a class="{% if request.resolver_match.url_name == 'about_page' %}active{% endif %}" href="{% url 'home:about_page' %}">درباره مـا </a>
                             </li>
                             <li>
-                                <a class="{% if request.resolver_match.url_name == 'contact_us_page' %}active{% endif %}"
-                                   href="{% url 'contact_us:contact_us_page' %}">تماس با مـا</a>
+                                <a class="{% if request.resolver_match.url_name == 'contact_us_page' %}active{% endif %}" href="{% url 'contact_us:contact_us_page' %}">تماس با مـا</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </div><!--/header-bottom-->

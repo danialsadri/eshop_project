@@ -32,8 +32,7 @@ class AboutView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(AboutView, self).get_context_data(**kwargs)
-        site_setting: SiteSetting = SiteSetting.objects.filter(is_main_setting=True).first()
-        context['site_setting'] = site_setting
+        context['site_setting'] = SiteSetting.objects.filter(is_main_setting=True).first()
         return context
 
 

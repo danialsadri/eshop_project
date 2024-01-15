@@ -1,22 +1,37 @@
 from django.contrib import admin
-from . import models
+from .models import SiteSetting, FooterLinkBox, FooterLink, Slider, SiteBanner
 
 
+@admin.register(SiteSetting)
+class SiteSettingAdmin(admin.ModelAdmin):
+    list_display = ['site_name', 'site_url', 'phone', 'email', 'is_main_setting']
+    list_filter = ['is_main_setting']
+    search_fields = ['site_name']
+
+
+@admin.register(FooterLinkBox)
+class FooterLinkBoxAdmin(admin.ModelAdmin):
+    list_display = ['title']
+    list_filter = ['title']
+    search_fields = ['title']
+
+
+@admin.register(FooterLink)
 class FooterLinkAdmin(admin.ModelAdmin):
-    list_display = ['title', 'url']
+    list_display = ['footer_link_box', 'title', 'url']
+    list_filter = ['title']
+    search_fields = ['title']
 
 
+@admin.register(Slider)
 class SliderAdmin(admin.ModelAdmin):
-    list_display = ['title', 'url', 'is_active']
-    list_editable = ['url', 'is_active']
+    list_display = ['title', 'url', 'url_title', 'is_active']
+    list_filter = ['is_active']
+    search_fields = ['title']
 
 
+@admin.register(SiteBanner)
 class SiteBannerAdmin(admin.ModelAdmin):
-    list_display = ['title', 'url', 'position']
-
-
-admin.site.register(models.SiteSetting)
-admin.site.register(models.FooterLinkBox)
-admin.site.register(models.Slider, SliderAdmin)
-admin.site.register(models.FooterLink, FooterLinkAdmin)
-admin.site.register(models.SiteBanner, SiteBannerAdmin)
+    list_display = ['position', 'title', 'is_active']
+    list_filter = ['is_active']
+    search_fields = ['title']

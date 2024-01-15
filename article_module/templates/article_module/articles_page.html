@@ -3,19 +3,15 @@
 {% load thumbnail %}
 {% load render_partial %}
 
-{% block title %}
-    لیست مقالات
-{% endblock %}
+{% block title %}لیست مقالات{% endblock %}
 
 {% block content %}
     <section>
         <div class="container">
             <div class="row">
-
                 <div class="col-sm-9">
                     <div class="blog-post-area">
                         <h2 class="title text-center">آخریـن اخبـار</h2>
-
                         {% for article in object_list %}
                             <div class="single-blog-post">
                                 <h3>{{ article.title }}</h3>
@@ -41,11 +37,8 @@
                                         <img src="{{ im.url }}">
                                     {% endthumbnail %}
                                 </a>
-                                <p>
-                                    {{ article.short_description }}
-                                </p>
-                                <a class="btn btn-primary" href="{% url 'articles_detail' pk=article.id %}">ادامـه
-                                    مطلب</a>
+                                <p>{{ article.short_description }}</p>
+                                <a class="btn btn-primary" href="{% url 'articles:articles_detail' pk=article.id %}">ادامـه مطلب</a>
                             </div>
                         {% endfor %}
                         <ul class="pagination">

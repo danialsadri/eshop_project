@@ -1,4 +1,4 @@
-<footer id="footer"><!--Footer-->
+<footer id="footer">
     <div class="footer-Before">
         <div class="container">
             <div class="block-news">
@@ -37,7 +37,6 @@
             </div>
         </div>
     </div>
-
     <div class="footer-widget">
         <div class="container">
             <div class="row">
@@ -46,7 +45,7 @@
                         <div class="single-widget">
                             <h2>{{ footer_link_box.title }}</h2>
                             <ul class="nav nav-pills nav-stacked">
-                                {% for link in footer_link_box.footerlink_set.all %}
+                                {% for link in footer_link_box.footerlinkes.all %}
                                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                                 {% endfor %}
                             </ul>
@@ -56,7 +55,6 @@
             </div>
         </div>
     </div>
-
     <div class="footer-bottom" style="direction: ltr !important;">
         <div class="container">
             <div class="row">
@@ -66,5 +64,4 @@
             </div>
         </div>
     </div>
-
-</footer><!--/Footer-->
+</footer>
