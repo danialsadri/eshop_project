@@ -7,12 +7,8 @@ from article_module.models import Article, ArticleCategory, ArticleComment
 
 class ArticlesListView(ListView):
     model = Article
-    paginate_by = 4
     template_name = 'article_module/articles_page.html'
-
-    def get_context_data(self, *args, **kwargs):
-        context = super(ArticlesListView, self).get_context_data(*args, **kwargs)
-        return context
+    paginate_by = 4
 
     def get_queryset(self):
         query = super(ArticlesListView, self).get_queryset()
@@ -36,7 +32,7 @@ class ArticleDetailView(DetailView):
         context = super(ArticleDetailView, self).get_context_data()
         article: Article = kwargs.get('object')
         context['comments'] = ArticleComment.objects.filter(article_id=article.id, parent=None).order_by('-create_date').prefetch_related('articlecomment_set')
-        context['comments_count'] = ArticleComment.objects.filter(article_id=article.id).count(),
+        context['comments_count'] = ArticleComment.objects.filter(article_id=article.id).count()
         return context
 
 

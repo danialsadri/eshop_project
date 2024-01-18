@@ -34,7 +34,7 @@
                                 </div>
                                 <a href="">
                                     {% thumbnail article.image "862x398" quality=95 crop='center' as im %}
-                                        <img src="{{ im.url }}">
+                                        <img src="{{ im.url }}" alt="{{ im.name }}">
                                     {% endthumbnail %}
                                 </a>
                                 <p>{{ article.short_description }}</p>
@@ -59,9 +59,9 @@
                 <div class="col-sm-3">
                     <div class="left-sidebar">
                         {% render_partial 'article_module.views.article_categories_component' %}
-                        <div class="shipping text-center"><!--shipping-->
+                        <div class="shipping text-center">
                             <img src="/static/images/home/shipping.jpg" alt="">
-                        </div><!--/shipping-->
+                        </div>
                     </div>
                 </div>
             </div>

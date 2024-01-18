@@ -1,17 +1,24 @@
 from django.contrib import admin
 from django.http import HttpRequest
-from . import models
-from .models import Article
+from .models import ArticleCategory, Article, ArticleComment
 
 
+@admin.register(ArticleCategory)
 class ArticleCategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'url_title', 'parent', 'is_active']
-    list_editable = ['url_title', 'parent', 'is_active']
-
-
-class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['title', 'slug', 'is_active', 'author']
+    list_filter = ['is_active']
+    search_fields = ['title', 'url_title']
     list_editable = ['is_active']
+    raw_id_fields = ['parent']
+
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ['author', 'title', 'is_active']
+    list_filter = ['is_active']
+    search_fields = ['title']
+    list_editable = ['is_active']
+    raw_id_fields = ['author', 'selected_categories']
 
     def save_model(self, request: HttpRequest, obj: Article, form, change):
         if not change:
@@ -19,10 +26,9 @@ class ArticleAdmin(admin.ModelAdmin):
         return super().save_model(request, obj, form, change)
 
 
+@admin.register(ArticleComment)
 class ArticleCommentAdmin(admin.ModelAdmin):
-    list_display = ['user', 'create_date', 'parent']
-
-
-admin.site.register(models.ArticleCategory, ArticleCategoryAdmin)
-admin.site.register(models.Article, ArticleAdmin)
-admin.site.register(models.ArticleComment, ArticleCommentAdmin)
+    list_display = ['parent', 'article', 'user', 'create_date']
+    list_filter = ['create_date']
+    search_fields = ['text']
+    raw_id_fields = ['parent', 'article', 'user']

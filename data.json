@@ -1,261 +1,9 @@
 [
 {
-    "model": "admin_interface.theme",
-    "pk": 1,
-    "fields": {
-        "name": "تم  مدیریت جنگو",
-        "active": true,
-        "title": "مدیریت جنگو",
-        "title_color": "#F5DD5D",
-        "title_visible": true,
-        "logo": "",
-        "logo_color": "#FFFFFF",
-        "logo_max_width": 400,
-        "logo_max_height": 100,
-        "logo_visible": true,
-        "favicon": "",
-        "env_name": "مدیریت جنگو",
-        "env_color": "#E74C3C",
-        "env_visible_in_header": true,
-        "env_visible_in_favicon": true,
-        "language_chooser_active": true,
-        "language_chooser_control": "default-select",
-        "language_chooser_display": "code",
-        "css_header_background_color": "#0C4B33",
-        "css_header_text_color": "#44B78B",
-        "css_header_link_color": "#FFFFFF",
-        "css_header_link_hover_color": "#C9F0DD",
-        "css_module_background_color": "#44B78B",
-        "css_module_background_selected_color": "#FFFFCC",
-        "css_module_text_color": "#FFFFFF",
-        "css_module_link_color": "#FFFFFF",
-        "css_module_link_selected_color": "#FFFFFF",
-        "css_module_link_hover_color": "#C9F0DD",
-        "css_module_rounded_corners": true,
-        "css_generic_link_color": "#0C3C26",
-        "css_generic_link_hover_color": "#156641",
-        "css_generic_link_active_color": "#29B864",
-        "css_save_button_background_color": "#0C4B33",
-        "css_save_button_background_hover_color": "#0C3C26",
-        "css_save_button_text_color": "#FFFFFF",
-        "css_delete_button_background_color": "#BA2121",
-        "css_delete_button_background_hover_color": "#A41515",
-        "css_delete_button_text_color": "#FFFFFF",
-        "related_modal_active": true,
-        "related_modal_background_color": "#000000",
-        "related_modal_background_opacity": "0.2",
-        "related_modal_rounded_corners": true,
-        "related_modal_close_button_visible": true,
-        "list_filter_highlight": true,
-        "list_filter_dropdown": false,
-        "list_filter_sticky": true,
-        "list_filter_removal_links": false,
-        "foldable_apps": true,
-        "show_fieldsets_as_tabs": false,
-        "show_inlines_as_tabs": false,
-        "collapsible_stacked_inlines": false,
-        "collapsible_stacked_inlines_collapsed": true,
-        "collapsible_tabular_inlines": false,
-        "collapsible_tabular_inlines_collapsed": true,
-        "recent_actions_visible": true,
-        "form_submit_sticky": false,
-        "form_pagination_sticky": false
-    }
-},
-{
-    "model": "admin_interface.theme",
-    "pk": 2,
-    "fields": {
-        "name": "Bootstrap",
-        "active": false,
-        "title": "Django administration",
-        "title_color": "#503873",
-        "title_visible": false,
-        "logo": "",
-        "logo_color": "#503873",
-        "logo_max_width": 400,
-        "logo_max_height": 100,
-        "logo_visible": true,
-        "favicon": "",
-        "env_name": "",
-        "env_color": "#E74C3C",
-        "env_visible_in_header": true,
-        "env_visible_in_favicon": true,
-        "language_chooser_active": true,
-        "language_chooser_control": "default-select",
-        "language_chooser_display": "code",
-        "css_header_background_color": "#FFFFFF",
-        "css_header_text_color": "#463265",
-        "css_header_link_color": "#463265",
-        "css_header_link_hover_color": "#7351A6",
-        "css_module_background_color": "#7351A6",
-        "css_module_background_selected_color": "#FFFFCC",
-        "css_module_text_color": "#FFFFFF",
-        "css_module_link_color": "#CDBFE3",
-        "css_module_link_selected_color": "#FFFFFF",
-        "css_module_link_hover_color": "#FFFFFF",
-        "css_module_rounded_corners": true,
-        "css_generic_link_color": "#463265",
-        "css_generic_link_hover_color": "#7351A6",
-        "css_generic_link_active_color": "#29B864",
-        "css_save_button_background_color": "#5CB85C",
-        "css_save_button_background_hover_color": "#449D44",
-        "css_save_button_text_color": "#FFFFFF",
-        "css_delete_button_background_color": "#D9534F",
-        "css_delete_button_background_hover_color": "#C9302C",
-        "css_delete_button_text_color": "#FFFFFF",
-        "related_modal_active": true,
-        "related_modal_background_color": "#503873",
-        "related_modal_background_opacity": "0.2",
-        "related_modal_rounded_corners": true,
-        "related_modal_close_button_visible": true,
-        "list_filter_highlight": true,
-        "list_filter_dropdown": false,
-        "list_filter_sticky": true,
-        "list_filter_removal_links": false,
-        "foldable_apps": true,
-        "show_fieldsets_as_tabs": false,
-        "show_inlines_as_tabs": false,
-        "collapsible_stacked_inlines": false,
-        "collapsible_stacked_inlines_collapsed": true,
-        "collapsible_tabular_inlines": false,
-        "collapsible_tabular_inlines_collapsed": true,
-        "recent_actions_visible": true,
-        "form_submit_sticky": false,
-        "form_pagination_sticky": false
-    }
-},
-{
-    "model": "admin_interface.theme",
-    "pk": 3,
-    "fields": {
-        "name": "Foundation",
-        "active": false,
-        "title": "Django administration",
-        "title_color": "#DDDDDD",
-        "title_visible": false,
-        "logo": "",
-        "logo_color": "#CCCCCC",
-        "logo_max_width": 400,
-        "logo_max_height": 100,
-        "logo_visible": true,
-        "favicon": "",
-        "env_name": "",
-        "env_color": "#E74C3C",
-        "env_visible_in_header": true,
-        "env_visible_in_favicon": true,
-        "language_chooser_active": true,
-        "language_chooser_control": "default-select",
-        "language_chooser_display": "code",
-        "css_header_background_color": "#2C3840",
-        "css_header_text_color": "#FFFFFF",
-        "css_header_link_color": "#FFFFFF",
-        "css_header_link_hover_color": "#DDDDDD",
-        "css_module_background_color": "#074E68",
-        "css_module_background_selected_color": "#FFFFCC",
-        "css_module_text_color": "#FFFFFF",
-        "css_module_link_color": "#FFFFFF",
-        "css_module_link_selected_color": "#FFFFFF",
-        "css_module_link_hover_color": "#DDDDDD",
-        "css_module_rounded_corners": true,
-        "css_generic_link_color": "#000000",
-        "css_generic_link_hover_color": "#074E68",
-        "css_generic_link_active_color": "#29B864",
-        "css_save_button_background_color": "#2199E8",
-        "css_save_button_background_hover_color": "#1585CF",
-        "css_save_button_text_color": "#FFFFFF",
-        "css_delete_button_background_color": "#CC4B37",
-        "css_delete_button_background_hover_color": "#BF4634",
-        "css_delete_button_text_color": "#FFFFFF",
-        "related_modal_active": true,
-        "related_modal_background_color": "#000000",
-        "related_modal_background_opacity": "0.2",
-        "related_modal_rounded_corners": true,
-        "related_modal_close_button_visible": true,
-        "list_filter_highlight": true,
-        "list_filter_dropdown": false,
-        "list_filter_sticky": true,
-        "list_filter_removal_links": false,
-        "foldable_apps": true,
-        "show_fieldsets_as_tabs": false,
-        "show_inlines_as_tabs": false,
-        "collapsible_stacked_inlines": false,
-        "collapsible_stacked_inlines_collapsed": true,
-        "collapsible_tabular_inlines": false,
-        "collapsible_tabular_inlines_collapsed": true,
-        "recent_actions_visible": true,
-        "form_submit_sticky": false,
-        "form_pagination_sticky": false
-    }
-},
-{
-    "model": "admin_interface.theme",
-    "pk": 4,
-    "fields": {
-        "name": "USWDS",
-        "active": false,
-        "title": "Django administration",
-        "title_color": "#FFFFFF",
-        "title_visible": false,
-        "logo": "",
-        "logo_color": "#FFFFFF",
-        "logo_max_width": 400,
-        "logo_max_height": 100,
-        "logo_visible": true,
-        "favicon": "",
-        "env_name": "",
-        "env_color": "#E74C3C",
-        "env_visible_in_header": true,
-        "env_visible_in_favicon": true,
-        "language_chooser_active": true,
-        "language_chooser_control": "default-select",
-        "language_chooser_display": "code",
-        "css_header_background_color": "#112E51",
-        "css_header_text_color": "#FFFFFF",
-        "css_header_link_color": "#FFFFFF",
-        "css_header_link_hover_color": "#E1F3F8",
-        "css_module_background_color": "#205493",
-        "css_module_background_selected_color": "#FFFFCC",
-        "css_module_text_color": "#FFFFFF",
-        "css_module_link_color": "#FFFFFF",
-        "css_module_link_selected_color": "#FFFFFF",
-        "css_module_link_hover_color": "#E1F3F8",
-        "css_module_rounded_corners": true,
-        "css_generic_link_color": "#205493",
-        "css_generic_link_hover_color": "#0071BC",
-        "css_generic_link_active_color": "#29B864",
-        "css_save_button_background_color": "#205493",
-        "css_save_button_background_hover_color": "#112E51",
-        "css_save_button_text_color": "#FFFFFF",
-        "css_delete_button_background_color": "#CD2026",
-        "css_delete_button_background_hover_color": "#981B1E",
-        "css_delete_button_text_color": "#FFFFFF",
-        "related_modal_active": true,
-        "related_modal_background_color": "#000000",
-        "related_modal_background_opacity": "0.8",
-        "related_modal_rounded_corners": true,
-        "related_modal_close_button_visible": true,
-        "list_filter_highlight": true,
-        "list_filter_dropdown": false,
-        "list_filter_sticky": true,
-        "list_filter_removal_links": false,
-        "foldable_apps": true,
-        "show_fieldsets_as_tabs": false,
-        "show_inlines_as_tabs": false,
-        "collapsible_stacked_inlines": false,
-        "collapsible_stacked_inlines_collapsed": true,
-        "collapsible_tabular_inlines": false,
-        "collapsible_tabular_inlines_collapsed": true,
-        "recent_actions_visible": true,
-        "form_submit_sticky": false,
-        "form_pagination_sticky": false
-    }
-},
-{
     "model": "admin_persian.font",
     "pk": 1,
     "fields": {
-        "name": "vazir",
+        "name": "tanha",
         "active": true
     }
 },
@@ -1716,6 +1464,214 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 113,
+    "fields": {
+        "action_time": "2024-01-14T23:30:05.311Z",
+        "user": 15,
+        "content_type": 24,
+        "object_id": "6",
+        "object_repr": "محمد علی عباسی",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 114,
+    "fields": {
+        "action_time": "2024-01-14T23:30:05.317Z",
+        "user": 15,
+        "content_type": 24,
+        "object_id": "5",
+        "object_repr": "محمد علی عباسی",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 115,
+    "fields": {
+        "action_time": "2024-01-14T23:30:05.322Z",
+        "user": 15,
+        "content_type": 24,
+        "object_id": "3",
+        "object_repr": "محمد علی عباسی",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 116,
+    "fields": {
+        "action_time": "2024-01-14T23:33:26.058Z",
+        "user": 15,
+        "content_type": 13,
+        "object_id": "1",
+        "object_repr": "فروشگاه",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0622\\u062f\\u0631\\u0633\", \"\\u062a\\u0644\\u0641\\u0646\", \"\\u0627\\u06cc\\u0645\\u06cc\\u0644\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 117,
+    "fields": {
+        "action_time": "2024-01-15T00:40:23.389Z",
+        "user": 15,
+        "content_type": 26,
+        "object_id": "1",
+        "object_repr": "تم  پنل مدیریت",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Name\", \"Title\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 118,
+    "fields": {
+        "action_time": "2024-01-17T01:36:36.614Z",
+        "user": 15,
+        "content_type": 17,
+        "object_id": "5",
+        "object_repr": "پراهن",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 119,
+    "fields": {
+        "action_time": "2024-01-17T01:46:10.930Z",
+        "user": 15,
+        "content_type": 27,
+        "object_id": "1",
+        "object_repr": "کلیک کنید و انتخاب کنید",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0627\\u0646\\u062a\\u062e\\u0627\\u0628 \\u0641\\u0648\\u0646\\u062a\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 120,
+    "fields": {
+        "action_time": "2024-01-17T01:49:25.571Z",
+        "user": 15,
+        "content_type": 22,
+        "object_id": "11",
+        "object_repr": "127.0.0.1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 121,
+    "fields": {
+        "action_time": "2024-01-17T01:49:25.579Z",
+        "user": 15,
+        "content_type": 22,
+        "object_id": "10",
+        "object_repr": "127.0.0.1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 122,
+    "fields": {
+        "action_time": "2024-01-17T01:49:25.585Z",
+        "user": 15,
+        "content_type": 22,
+        "object_id": "9",
+        "object_repr": "127.0.0.1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 123,
+    "fields": {
+        "action_time": "2024-01-17T01:49:25.590Z",
+        "user": 15,
+        "content_type": 22,
+        "object_id": "8",
+        "object_repr": "127.0.0.1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 124,
+    "fields": {
+        "action_time": "2024-01-17T01:49:25.595Z",
+        "user": 15,
+        "content_type": 22,
+        "object_id": "7",
+        "object_repr": "127.0.0.1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 125,
+    "fields": {
+        "action_time": "2024-01-17T01:49:25.601Z",
+        "user": 15,
+        "content_type": 22,
+        "object_id": "6",
+        "object_repr": "127.0.0.1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 126,
+    "fields": {
+        "action_time": "2024-01-17T01:49:25.605Z",
+        "user": 15,
+        "content_type": 22,
+        "object_id": "4",
+        "object_repr": "127.0.0.1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 127,
+    "fields": {
+        "action_time": "2024-01-17T01:49:25.614Z",
+        "user": 15,
+        "content_type": 22,
+        "object_id": "3",
+        "object_repr": "127.0.0.1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 128,
+    "fields": {
+        "action_time": "2024-01-17T01:49:25.622Z",
+        "user": 15,
+        "content_type": 22,
+        "object_id": "5",
+        "object_repr": "95.217.100.16",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -3137,6 +3093,14 @@
 },
 {
     "model": "sessions.session",
+    "pk": "tdq33g3y0sk5oiv4ut4sr2r9t8x452xq",
+    "fields": {
+        "session_data": ".eJxVjDsOgzAQRO_iOrKwF39ImZ4zWLv2OiaJjIShinL3gESRdKN5b-YtAm5rCVvjJUxJXIUy4vJbEsYn14OkB9b7LONc12UieSjypE2Oc-LX7XT_Dgq2sq-t5mg764BJKXa925MhgNT17I0ejE3aIxMN2cdosiXnLDBkpwETg_h8AfqrOBo:1rPuvF:OY5kaR7qV3J3B38qQWuu0lkOGBUMW8m-KGMmVVWnoL0",
+        "expire_date": "2024-01-31T01:40:53.321Z"
+    }
+},
+{
+    "model": "sessions.session",
     "pk": "v8w95zdd0ax06bs1evf6984100zwk0vu",
     "fields": {
         "session_data": ".eJxVjEEOwiAQRe_C2hBmCgIu3fcMBIZBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIiQJx-txTpwW0H-R7bbZY0t3WZktwVedAuxznz83q4fwc19vqti9GaGJCiQSiQ0IJj5TkZSuxIOYRYBiCX2Wn07JQx-WzR2zRoHIp4fwDnizeg:1nHe9H:mttjokogNKqoRVduHAFbNPJUaNX9kRPOcayDSuUOF4M",
@@ -3161,14 +3125,6 @@
 },
 {
     "model": "sessions.session",
-    "pk": "w3hs73lyja35da4fswnhxwq717xs0n0u",
-    "fields": {
-        "session_data": ".eJxVjEEOwiAQRe_C2hCGDggu3fcMZIBBqoYmpV0Z765NutDtf-_9lwi0rTVsnZcwZXERAOL0O0ZKD247yXdqt1mmua3LFOWuyIN2Oc6Zn9fD_Tuo1Ou35lgY2JhypkSglPU6mayVic6QRnDaaUL2brCAQ_HFgLWINnEBUGjF-wMFLDc9:1rMI6n:iHIMKsuzXxoqMINXhCzSIOwNJ73qdvjpARnJLVB9L6Q",
-        "expire_date": "2024-01-21T01:37:49.264Z"
-    }
-},
-{
-    "model": "sessions.session",
     "pk": "wrh7rd7zs7pod1qx9jbcq87s1jaf9a2g",
     "fields": {
         "session_data": ".eJxVjEEOgjAQRe_StWk6HaZQl-49QzOdKYIaSCisjHdXEha6_e-9_zKJt3VIWy1LGtWcTWNOv1tmeZRpB3rn6TZbmad1GbPdFXvQaq-zluflcP8OBq7Dt3ZUIjUREAQwRM9FRamjLlCRCAQSwBMiMGvnULJrPfXBK_W-RQfm_QG5-jam:1nbHuD:lqO19m0iHx3yA9w_Y2FxdrsKVfz93rYLlufAUjrFuwU",
@@ -3181,28 +3137,6 @@
     "fields": {
         "session_data": ".eJxVjEEOwiAQRe_C2hBmCgIu3fcMBIZBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIiQJx-txTpwW0H-R7bbZY0t3WZktwVedAuxznz83q4fwc19vqti9GaGJCiQSiQ0IJj5TkZSuxIOYRYBiCX2Wn07JQx-WzR2zRoHIp4fwDnizeg:1nUPhy:KgfVsboXUrs8M_bq71e7qU0TFRnNyK5qUMgljYNLSCM",
         "expire_date": "2022-03-30T09:12:42.587Z"
-    }
-},
-{
-    "model": "account_module.user",
-    "pk": 1,
-    "fields": {
-        "password": "pbkdf2_sha256$260000$xuoyHRPH5wvjWlBniiQw92$pE6kIPKjKp4rwAWwUjkb1KYYRnaarl7lbn8qCgmvqyU=",
-        "last_login": "2022-03-16T09:12:42.572Z",
-        "is_superuser": true,
-        "username": "mohammad",
-        "first_name": "",
-        "last_name": "",
-        "email": "admin@admin.com",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2022-01-30T18:59:19.191Z",
-        "avatar": "",
-        "email_active_code": "",
-        "about_user": null,
-        "address": null,
-        "groups": [],
-        "user_permissions": []
     }
 },
 {
@@ -3231,8 +3165,8 @@
     "model": "account_module.user",
     "pk": 7,
     "fields": {
-        "password": "pbkdf2_sha256$260000$w0vWwC8Jt9Z9RDgd8NLXWd$nnBLioKDoMtaFA4jzqbgDA4rq7Oa2RYBxfInOjdwGzA=",
-        "last_login": "2022-02-15T13:00:43.156Z",
+        "password": "pbkdf2_sha256$720000$KySJbV0OFKRImzNjSicG9b$aRMjzMF79F55mBhBSUyG3NqEkssX/B+uxWToYAcFYXw=",
+        "last_login": "2024-01-14T03:03:38.387Z",
         "is_superuser": false,
         "username": "moh96ordo@gmail.com",
         "first_name": "",
@@ -3273,64 +3207,20 @@
 },
 {
     "model": "account_module.user",
-    "pk": 9,
+    "pk": 15,
     "fields": {
-        "password": "pbkdf2_sha256$720000$wndnwTGDEoBw1CxjIFLx7H$Y9cs0NZMVmY9iwYpAH7mStE7Zb/XOv8oafkPplKo8sE=",
-        "last_login": "2023-12-29T19:24:53.726Z",
+        "password": "pbkdf2_sha256$720000$kvZLrc2TlZiWh25JUSHrnF$29OgCpRZeTRAU8Z5mMxQmleQSMAPaZf5u+lh97JJCNI=",
+        "last_login": "2024-01-17T01:40:53.314Z",
         "is_superuser": true,
-        "username": "admin",
+        "username": "mamad@mamad.com",
         "first_name": "",
         "last_name": "",
-        "email": "admin@admin.com",
+        "email": "mamad@mamad.com",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2023-12-17T14:08:41.535Z",
+        "date_joined": "2024-01-14T00:32:59.109Z",
         "avatar": "",
-        "email_active_code": "",
-        "about_user": null,
-        "address": null,
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "account_module.user",
-    "pk": 10,
-    "fields": {
-        "password": "pbkdf2_sha256$720000$46e3VzYvWbDsYfFUE1tdof$jhFJxbxUXW6Yw4Ww8ZWa+ztPpWvEWptLwNOM7icnMV0=",
-        "last_login": "2023-12-17T14:41:35.886Z",
-        "is_superuser": true,
-        "username": "danial",
-        "first_name": "",
-        "last_name": "",
-        "email": "danial@gmail.com",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2023-12-17T14:41:20.554Z",
-        "avatar": "",
-        "email_active_code": "",
-        "about_user": null,
-        "address": null,
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "account_module.user",
-    "pk": 11,
-    "fields": {
-        "password": "pbkdf2_sha256$720000$SpivvVOVpIaI9nYYpsbCGl$zIVYGvlwi+vAYfFuy0UpTTSeRk46nx+8anO90mVkkhA=",
-        "last_login": "2024-01-07T01:37:49.256Z",
-        "is_superuser": true,
-        "username": "admin1",
-        "first_name": "",
-        "last_name": "",
-        "email": "admin1@admin1.com",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2024-01-07T00:22:13.863Z",
-        "avatar": "",
-        "email_active_code": "",
+        "email_active_code": "uooglnEvUO18EVzYen5ty6P6VO6XdY7xgQiVZdD7Cbos1R0jyQr2a7znUkBxrNBpf4wfuQwe",
         "about_user": null,
         "address": null,
         "groups": [],
@@ -3585,87 +3475,6 @@
     }
 },
 {
-    "model": "product_module.productvisit",
-    "pk": 3,
-    "fields": {
-        "product": 10,
-        "user": null,
-        "ip": "127.0.0.1"
-    }
-},
-{
-    "model": "product_module.productvisit",
-    "pk": 4,
-    "fields": {
-        "product": 6,
-        "user": 4,
-        "ip": "127.0.0.1"
-    }
-},
-{
-    "model": "product_module.productvisit",
-    "pk": 5,
-    "fields": {
-        "product": 10,
-        "user": null,
-        "ip": "95.217.100.16"
-    }
-},
-{
-    "model": "product_module.productvisit",
-    "pk": 6,
-    "fields": {
-        "product": 9,
-        "user": 4,
-        "ip": "127.0.0.1"
-    }
-},
-{
-    "model": "product_module.productvisit",
-    "pk": 7,
-    "fields": {
-        "product": 7,
-        "user": 4,
-        "ip": "127.0.0.1"
-    }
-},
-{
-    "model": "product_module.productvisit",
-    "pk": 8,
-    "fields": {
-        "product": 5,
-        "user": 4,
-        "ip": "127.0.0.1"
-    }
-},
-{
-    "model": "product_module.productvisit",
-    "pk": 9,
-    "fields": {
-        "product": 4,
-        "user": 4,
-        "ip": "127.0.0.1"
-    }
-},
-{
-    "model": "product_module.productvisit",
-    "pk": 10,
-    "fields": {
-        "product": 11,
-        "user": 9,
-        "ip": "127.0.0.1"
-    }
-},
-{
-    "model": "product_module.productvisit",
-    "pk": 11,
-    "fields": {
-        "product": 8,
-        "user": 9,
-        "ip": "127.0.0.1"
-    }
-},
-{
     "model": "product_module.productgallery",
     "pk": 1,
     "fields": {
@@ -3716,10 +3525,10 @@
     "fields": {
         "site_name": "فروشگاه",
         "site_url": "http://localhost:8000",
-        "address": "تهران",
-        "phone": "021444444",
+        "address": "یزد ابرکوه",
+        "phone": "09138534659",
         "fax": "0123456789",
-        "email": null,
+        "email": "danielsadri01@gmail.com",
         "copy_right": "تمامی حقوق این سایت متعلق به فروشگاه می باشد",
         "about_us_text": "این سایت با فریم ورک جنگو نوشته شده",
         "site_logo": "images/site-setting/logo.png",
@@ -3744,9 +3553,9 @@
     "model": "site_module.footerlink",
     "pk": 1,
     "fields": {
+        "footer_link_box": 1,
         "title": "درباره ما",
-        "url": "http://example.com",
-        "footer_link_box": 1
+        "url": "http://example.com"
     }
 },
 {
@@ -3777,33 +3586,33 @@
     "model": "site_module.sitebanner",
     "pk": 1,
     "fields": {
+        "position": "product_list",
         "title": "بنر تبلیغاتی صفحه لیست محصولات",
         "url": "https://barnamenevisan.org/",
         "image": "images/banners/83_لرن_بای_برنامه_نویسان1.png",
-        "is_active": true,
-        "position": "product_list"
+        "is_active": true
     }
 },
 {
     "model": "site_module.sitebanner",
     "pk": 2,
     "fields": {
+        "position": "product_detail",
         "title": "بنر تبلیغاتی صفحه ی جزییات محصول",
         "url": "http://127.0.0.1:8000/",
         "image": "images/banners/83_لرن_بای_برنامه_نویسان1_AY1jbld.png",
-        "is_active": true,
-        "position": "product_detail"
+        "is_active": true
     }
 },
 {
     "model": "site_module.sitebanner",
     "pk": 3,
     "fields": {
+        "position": "product_detail",
         "title": "تست",
         "url": null,
         "image": "images/banners/83_لرن_بای_برنامه_نویسان1_9NyxM4I.png",
-        "is_active": true,
-        "position": "product_detail"
+        "is_active": true
     }
 },
 {
@@ -4003,131 +3812,6 @@
     }
 },
 {
-    "model": "order_module.order",
-    "pk": 3,
-    "fields": {
-        "user": 4,
-        "is_paid": true,
-        "payment_date": "2022-05-31"
-    }
-},
-{
-    "model": "order_module.order",
-    "pk": 5,
-    "fields": {
-        "user": 4,
-        "is_paid": true,
-        "payment_date": "2022-06-08"
-    }
-},
-{
-    "model": "order_module.order",
-    "pk": 6,
-    "fields": {
-        "user": 4,
-        "is_paid": false,
-        "payment_date": null
-    }
-},
-{
-    "model": "order_module.order",
-    "pk": 7,
-    "fields": {
-        "user": 9,
-        "is_paid": false,
-        "payment_date": null
-    }
-},
-{
-    "model": "order_module.order",
-    "pk": 8,
-    "fields": {
-        "user": 11,
-        "is_paid": false,
-        "payment_date": null
-    }
-},
-{
-    "model": "order_module.orderdetail",
-    "pk": 18,
-    "fields": {
-        "order": 3,
-        "product": 9,
-        "final_price": 6050000,
-        "count": 2
-    }
-},
-{
-    "model": "order_module.orderdetail",
-    "pk": 19,
-    "fields": {
-        "order": 5,
-        "product": 7,
-        "final_price": 19200000,
-        "count": 10
-    }
-},
-{
-    "model": "order_module.orderdetail",
-    "pk": 20,
-    "fields": {
-        "order": 5,
-        "product": 4,
-        "final_price": 33650000,
-        "count": 5
-    }
-},
-{
-    "model": "order_module.orderdetail",
-    "pk": 21,
-    "fields": {
-        "order": 5,
-        "product": 9,
-        "final_price": 6050000,
-        "count": 2
-    }
-},
-{
-    "model": "order_module.orderdetail",
-    "pk": 26,
-    "fields": {
-        "order": 7,
-        "product": 5,
-        "final_price": null,
-        "count": 4
-    }
-},
-{
-    "model": "order_module.orderdetail",
-    "pk": 27,
-    "fields": {
-        "order": 7,
-        "product": 11,
-        "final_price": null,
-        "count": 13
-    }
-},
-{
-    "model": "order_module.orderdetail",
-    "pk": 28,
-    "fields": {
-        "order": 7,
-        "product": 9,
-        "final_price": null,
-        "count": 4
-    }
-},
-{
-    "model": "order_module.orderdetail",
-    "pk": 29,
-    "fields": {
-        "order": 7,
-        "product": 10,
-        "final_price": null,
-        "count": 1
-    }
-},
-{
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||image||016bd5d9be6d4cf714affd3e4d3f5998",
     "fields": {
@@ -4223,6 +3907,13 @@
     "pk": "sorl-thumbnail||image||2d64ec88dac841ca77401a3e1db03aac",
     "fields": {
         "value": "{\"name\": \"images/products/11.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [800, 800]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||2e5ae131b671968206c58e1fd40e230a",
+    "fields": {
+        "value": "{\"name\": \"images/profile/blog-one.jpg\", \"storage\": \"django.core.files.storage.filesystem.FileSystemStorage\", \"size\": [862, 398]}"
     }
 },
 {
@@ -4472,6 +4163,13 @@
 },
 {
     "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||f18dd29bbc3b608df8228ca56f631099",
+    "fields": {
+        "value": "{\"name\": \"cache/64/a6/64a6b531ff056217cb7c4f98f0eb6dca.jpg\", \"storage\": \"django.core.files.storage.filesystem.FileSystemStorage\", \"size\": [121, 86]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||image||fb701ce175db0f521f8db0033320aa1d",
     "fields": {
         "value": "{\"name\": \"images/products/4.jpg\", \"storage\": \"django.core.files.storage.filesystem.FileSystemStorage\", \"size\": [600, 600]}"
@@ -4496,6 +4194,13 @@
     "pk": "sorl-thumbnail||thumbnails||2d64ec88dac841ca77401a3e1db03aac",
     "fields": {
         "value": "[\"423778cee22b84c0f8a6bec00f604ff6\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||2e5ae131b671968206c58e1fd40e230a",
+    "fields": {
+        "value": "[\"f18dd29bbc3b608df8228ca56f631099\"]"
     }
 },
 {
