@@ -20,9 +20,8 @@
                                         {% if article.author is not None %}
                                             <li><i class="fa fa-user"></i> {{ article.author }}</li>
                                         {% endif %}
-                                        <li><i class="fa fa-clock-o"></i>{{ article.get_jalali_create_time }}</li>
-                                        <li><i class="fa fa-calendar"></i>{{ article.create_date | show_jalali_date }}
-                                        </li>
+                                        <li><i class="fa fa-clock-o"></i>{{ article.create_date | show_jalali_time }}</li>
+                                        <li><i class="fa fa-calendar"></i>{{ article.create_date | show_jalali_date }}</li>
                                     </ul>
                                     <span>
 										<i class="fa fa-star"></i>
@@ -30,9 +29,9 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star-half-o"></i>
-								</span>
+								    </span>
                                 </div>
-                                <a href="">
+                                <a href="{% url 'articles:articles_detail' pk=article.id %}">
                                     {% thumbnail article.image "862x398" quality=95 crop='center' as im %}
                                         <img src="{{ im.url }}" alt="{{ im.name }}">
                                     {% endthumbnail %}

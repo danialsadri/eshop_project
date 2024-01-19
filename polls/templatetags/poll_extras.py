@@ -1,5 +1,5 @@
 from django import template
-from jalali_date import date2jalali
+from jalali_date import date2jalali, datetime2jalali
 
 register = template.Library()
 
@@ -13,6 +13,11 @@ def cut(value, arg):
 @register.filter(name='show_jalali_date')
 def show_jalali_date(value):
     return date2jalali(value)
+
+
+@register.filter(name='show_jalali_time')
+def show_jalali_time(value):
+    return datetime2jalali(value).strftime('%H:%M')
 
 
 @register.filter(name='three_digits_currency')

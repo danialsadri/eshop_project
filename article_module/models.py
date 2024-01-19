@@ -1,5 +1,5 @@
 from django.db import models
-from jalali_date import date2jalali
+from jalali_date import date2jalali, datetime2jalali
 from account_module.models import User
 
 
@@ -40,11 +40,11 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-    def get_jalali_create_date(self):
+    def get_jalali_date(self):
         return date2jalali(self.create_date)
 
-    def get_jalali_create_time(self):
-        return self.create_date.strftime('%H:%M')
+    def get_jalali_time(self):
+        return datetime2jalali(self.create_date).strftime('%H:%M')
 
 
 class ArticleComment(models.Model):
