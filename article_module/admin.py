@@ -18,7 +18,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ['is_active']
     search_fields = ['title']
     list_editable = ['is_active']
-    raw_id_fields = ['author', 'selected_categories']
+    raw_id_fields = ['author', 'categories']
 
     def save_model(self, request: HttpRequest, obj: Article, form, change):
         if not change:
