@@ -16,12 +16,11 @@
                             <h3>{{ article.title }}</h3>
                             <div class="post-meta">
                                 <ul>
-                                    {% if article.author is not None %}
+                                    {% if article.author %}
                                         <li><i class="fa fa-user"></i> {{ article.author }}</li>
                                     {% endif %}
                                     <li><i class="fa fa-clock-o"></i>{{ article.create_date | show_jalali_time }}</li>
-                                    <li><i class="fa fa-calendar"></i>{{ article.create_date | show_jalali_date }}
-                                    </li>
+                                    <li><i class="fa fa-calendar"></i>{{ article.create_date | show_jalali_date }}</li>
                                 </ul>
                                 <span>
 										<i class="fa fa-star"></i>
@@ -31,7 +30,7 @@
 										<i class="fa fa-star-half-o"></i>
 								</span>
                             </div>
-                            <a href="">
+                            <a href="#">
                                 {% thumbnail article.image "862x398" quality=95 crop='center' as im %}
                                     <img src="{{ im.url }}">
                                 {% endthumbnail %}
@@ -57,7 +56,6 @@
                             </div>
                         </div>
                     {% endif %}
-                    <!--Comments-->
                     <div class="response-area" id="comments_area">
                         <h2> نظرات ({{ comments_count }})</h2>
                         <ul class="media-list">
@@ -68,13 +66,13 @@
                                         <ul class="sinlge-post-meta">
                                             <li><i class="fa fa-user"></i>{{ comment.user }}</li>
                                             <li><i class="fa fa-clock-o"></i> {{ comment.create_date | show_jalali_time }}</li>
-                                            <li><i class="fa fa-calendar"></i> {{ comment.create_date|show_jalali_date }}</li>
+                                            <li><i class="fa fa-calendar"></i> {{ comment.create_date | show_jalali_date }}</li>
                                         </ul>
                                         <p>{{ comment.text }}</p>
                                         <a class="btn btn-primary" onclick="fillParentId({{ comment.id }})"><i class="fa fa-reply"></i>پاسـخ</a>
                                     </div>
                                 </li>
-                                {% for sub_comment in comment.articlecomment_set.all %}
+                                {% for sub_comment in comment.comments.all %}
                                     <li class="media second-media" id="single_comment_box_{{ comment.id }}">
                                         <a class="pull-right" href="#"><img class="media-object" src="/static/images/blog/Customer.jpg" alt=""></a>
                                         <div class="media-body">
@@ -89,7 +87,7 @@
                                 {% endfor %}
                             {% endfor %}
                         </ul>
-                    </div><!--/Response-area-->
+                    </div>
                     <div class="replay-box" id="comment_form">
                         {% if request.user.is_authenticated %}
                             <div class="row">
@@ -107,10 +105,15 @@
                         {% else %}
                             <div class="alert alert-warning">برای درج نظر می بایست <a href="{% url 'accounts:login_page' %}">لاگین</a> کنید</div>
                         {% endif %}
-                    </div><!--/Repaly Box-->
+                    </div>
                 </div>
                 <div class="col-sm-3">
-                    <div class="left-sidebar">{% render_partial 'article_module.views.article_categories_component' %}</div>
+                    <div class="left-sidebar">
+                        {% render_partial 'article_module.views.article_categories_component' %}
+{#                        <div class="shipping text-center">#}
+{#                            <img src="/static/images/home/shipping.jpg" alt="">#}
+{#                        </div>#}
+                    </div>
                 </div>
             </div>
         </div>

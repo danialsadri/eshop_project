@@ -17,7 +17,7 @@
                                 <h3>{{ article.title }}</h3>
                                 <div class="post-meta">
                                     <ul>
-                                        {% if article.author is not None %}
+                                        {% if article.author %}
                                             <li><i class="fa fa-user"></i> {{ article.author }}</li>
                                         {% endif %}
                                         <li><i class="fa fa-clock-o"></i>{{ article.create_date | show_jalali_time }}</li>
@@ -58,9 +58,9 @@
                 <div class="col-sm-3">
                     <div class="left-sidebar">
                         {% render_partial 'article_module.views.article_categories_component' %}
-                        <div class="shipping text-center">
-                            <img src="/static/images/home/shipping.jpg" alt="">
-                        </div>
+{#                        <div class="shipping text-center">#}
+{#                            <img src="/static/images/home/shipping.jpg" alt="">#}
+{#                        </div>#}
                     </div>
                 </div>
             </div>

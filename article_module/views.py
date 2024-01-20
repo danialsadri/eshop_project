@@ -10,6 +10,10 @@ class ArticlesListView(ListView):
     template_name = 'article_module/articles_page.html'
     paginate_by = 4
 
+    def get_context_data(self, **kwargs):
+        context = super(ArticlesListView, self).get_context_data()
+        return context
+
     def get_queryset(self):
         query = super(ArticlesListView, self).get_queryset()
         query = query.filter(is_active=True)
@@ -23,17 +27,17 @@ class ArticleDetailView(DetailView):
     model = Article
     template_name = 'article_module/article_detail_page.html'
 
-    def get_queryset(self):
-        query = super(ArticleDetailView, self).get_queryset()
-        query = query.filter(is_active=True)
-        return query
-
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data()
         article: Article = kwargs.get('object')
         context['comments'] = ArticleComment.objects.filter(article_id=article.id, parent=None).order_by('-create_date').prefetch_related('comments')
         context['comments_count'] = ArticleComment.objects.filter(article_id=article.id).count()
         return context
+
+    def get_queryset(self):
+        query = super(ArticleDetailView, self).get_queryset()
+        query = query.filter(is_active=True)
+        return query
 
 
 def add_article_comment(request: HttpRequest):
