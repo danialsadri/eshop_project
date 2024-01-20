@@ -61,7 +61,15 @@
                         <ul class="media-list">
                             {% for comment in comments %}
                                 <li class="media" id="single_comment_box_{{ comment.id }}">
-                                    <a class="pull-right" href="#"><img class="media-object" src="/static/images/blog/Customer.jpg" alt=""></a>
+                                    <a class="pull-right" href="#">
+                                        {% if comment.user.avatar %}
+                                            {% thumbnail comment.user.avatar "121x86" quality=95 crop='center' as im %}
+                                                <img class="media-object" src="{{ im.url }}">
+                                            {% endthumbnail %}
+                                        {% else %}
+                                            <img class="media-object" src="/static/images/blog/Customer.jpg" alt="">
+                                        {% endif %}
+                                    </a>
                                     <div class="media-body">
                                         <ul class="sinlge-post-meta">
                                             <li><i class="fa fa-user"></i>{{ comment.user }}</li>
@@ -74,7 +82,15 @@
                                 </li>
                                 {% for sub_comment in comment.comments.all %}
                                     <li class="media second-media" id="single_comment_box_{{ comment.id }}">
-                                        <a class="pull-right" href="#"><img class="media-object" src="/static/images/blog/Customer.jpg" alt=""></a>
+                                        <a class="pull-right" href="#">
+                                            {% if sub_comment.user.avatar %}
+                                                {% thumbnail sub_comment.user.avatar "121x86" quality=95 crop='center' as im %}
+                                                    <img class="media-object" src="{{ im.url }}">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                <img class="media-object" src="/static/images/blog/Customer.jpg" alt="">
+                                            {% endif %}
+                                        </a>
                                         <div class="media-body">
                                             <ul class="sinlge-post-meta">
                                                 <li><i class="fa fa-user"></i>{{ sub_comment.user }}</li>
