@@ -1,5 +1,7 @@
-<header id="header"><!--header-->
-    <div class="header_top"><!--header_top-->
+<!--header-->
+<header id="header">
+    <!--header_top-->
+    <div class="header_top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
@@ -23,8 +25,10 @@
                 </div>
             </div>
         </div>
-    </div><!--/header_top-->
-    <div class="header-middle"><!--header-middle-->
+    </div>
+    <!--/header_top-->
+    <!--header-middle-->
+    <div class="header-middle">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4" style="text-align: left;">
@@ -39,25 +43,22 @@
                                 {% if request.user.is_superuser %}
                                     <li><a href="/admin"><i class="fa fa-user"></i> پنل ادمین</a></li>
                                 {% endif %}
-                                <li><a href="{% url 'users:user_basket_page' %}"><i class="fa fa-shopping-cart"></i>سبد خرید</a>
-                                </li>
-                                <li><a href="{% url 'users:user_panel_dashboard' %}"><i class="fa fa-user"></i> پنل کاربری</a>
-                                </li>
-                                <li><a href="{% url 'accounts:logout_page' %}"><i class="fa fa-sign-out"></i> خروج</a>
-                                </li>
+                                <li><a href="{% url 'users:user_basket_page' %}"><i class="fa fa-shopping-cart"></i> سبد خرید</a></li>
+                                <li><a href="{% url 'users:user_panel_dashboard' %}"><i class="fa fa-user"></i> پنل کاربری</a></li>
+                                <li><a href="{% url 'accounts:logout_page' %}"><i class="fa fa-sign-out"></i> خروج</a></li>
                             {% else %}
-                                <li><a href="{% url 'accounts:register_page' %}"><i class="fa fa-user-plus"></i> ثبت نام</a>
-                                </li>
-                                <li><a href="{% url 'accounts:login_page' %}"><i class="fa fa-sign-in"></i> ورود</a>
-                                </li>
+                                <li><a href="{% url 'accounts:register_page' %}"><i class="fa fa-user-plus"></i> ثبت نام</a></li>
+                                <li><a href="{% url 'accounts:login_page' %}"><i class="fa fa-sign-in"></i> ورود</a></li>
                             {% endif %}
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div><!--/header-middle-->
-    <div class="header-bottom"><!--header-bottom-->
+    </div>
+    <!--/header-middle-->
+    <!--header-bottom-->
+    <div class="header-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -67,8 +68,7 @@
                 </div>
                 <div class="col-sm-9">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target=".navbar-collapse">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -97,5 +97,7 @@
                 </div>
             </div>
         </div>
-    </div><!--/header-bottom-->
-</header><!--/header-->
+    </div>
+    <!--/header-bottom-->
+</header>
+<!--/header-->

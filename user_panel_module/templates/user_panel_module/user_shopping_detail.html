@@ -2,9 +2,7 @@
 {% load render_partial %}
 {% load poll_extras %}
 
-{% block title %}
-    جزییات خرید
-{% endblock %}
+{% block title %}جزییات خرید{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -28,7 +26,6 @@
                             <td class="text-right">{{ detail.final_price|three_digits_currency }}</td>
                         </tr>
                     {% endfor %}
-
                 </table>
             </div>
         </div>
