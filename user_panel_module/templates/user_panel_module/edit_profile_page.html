@@ -1,4 +1,5 @@
 {% extends 'shared/_layout.html' %}
+{% load thumbnail %}
 {% load render_partial %}
 
 {% block title %}ویرایش اطلاعات کاربری{% endblock %}
@@ -7,9 +8,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                {% if current_user.avatar %}
-                    <a class="thumbnail"><img style="width: 100%" src="{{ current_user.avatar.url }}" alt=""></a>
-                {% endif %}
+                <a class="thumbnail">
+                    {% if current_user.avatar %}
+                        {% thumbnail current_user.avatar "862x398" crop='center' quality=100  as img %}
+                            <img class="media-object" src="{{ img.url }}" alt="{{ img.name }}">
+                        {% endthumbnail %}
+                    {% else %}
+                        <img class="media-object" src="/static/images/blog/blog-one.jpg" alt="blog one">
+                    {% endif %}
+                </a>
                 {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
             </div>
             <div class="col-md-8">
@@ -17,6 +24,7 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit" class="btn btn-success">ثبت</button>
+                    <br><br>
                 </form>
             </div>
         </div>

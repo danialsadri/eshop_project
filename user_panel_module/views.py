@@ -22,21 +22,16 @@ class EditUserProfilePage(View):
     def get(self, request: HttpRequest):
         current_user = User.objects.filter(id=request.user.id).first()
         edit_form = EditProfileModelForm(instance=current_user)
-        context = {
-            'form': edit_form,
-            'current_user': current_user
-        }
+        context = {'form': edit_form, 'current_user': current_user}
         return render(request, 'user_panel_module/edit_profile_page.html', context)
 
     def post(self, request: HttpRequest):
         current_user = User.objects.filter(id=request.user.id).first()
-        edit_form = EditProfileModelForm(request.POST, request.FILES, instance=current_user)
+        edit_form = EditProfileModelForm(data=request.POST, files=request.FILES, instance=current_user)
         if edit_form.is_valid():
-            edit_form.save(commit=True)
-        context = {
-            'form': edit_form,
-            'current_user': current_user
-        }
+            edit_form.save()
+            return redirect(reverse('users:user_panel_dashboard'))
+        context = {'form': edit_form, 'current_user': current_user}
         return render(request, 'user_panel_module/edit_profile_page.html', context)
 
 
@@ -85,6 +80,14 @@ def user_basket(request: HttpRequest):
     return render(request, 'user_panel_module/user_basket.html', context)
 
 
+def my_shopping_detail(request: HttpRequest, order_id):
+    order = Order.objects.prefetch_related('orderdetail_set').filter(id=order_id, user_id=request.user.id).first()
+    if order is None:
+        raise Http404('سبد خرید مورد نظر یافت نشد')
+    context = {'order': order}
+    return render(request, 'user_panel_module/user_shopping_detail.html', context)
+
+
 @login_required
 def remove_order_detail(request):
     detail_id = request.GET.get('detail_id')
@@ -123,14 +126,6 @@ def change_order_detail_count(request: HttpRequest):
     total_amount = current_order.calculate_total_price()
     context = {'order': current_order, 'sum': total_amount}
     return JsonResponse({'status': 'success', 'body': render_to_string('user_panel_module/user_basket_content.html', context)})
-
-
-def my_shopping_detail(request: HttpRequest, order_id):
-    order = Order.objects.prefetch_related('orderdetail_set').filter(id=order_id, user_id=request.user.id).first()
-    if order is None:
-        raise Http404('سبد خرید مورد نظر یافت نشد')
-    context = {'order': order}
-    return render(request, 'user_panel_module/user_shopping_detail.html', context)
 
 
 @login_required
