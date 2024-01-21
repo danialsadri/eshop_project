@@ -39,8 +39,7 @@ class EditUserProfilePage(View):
 class ChangePasswordPage(View):
     def get(self, request: HttpRequest):
         form = ChangePasswordForm()
-        context = {'form': form}
-        return render(request, 'user_panel_module/change_password_page.html', context)
+        return render(request, 'user_panel_module/change_password_page.html', {'form': form})
 
     def post(self, request: HttpRequest):
         form = ChangePasswordForm(request.POST)
@@ -53,8 +52,7 @@ class ChangePasswordPage(View):
                 return redirect(reverse('accounts:login_page'))
             else:
                 form.add_error('password', 'کلمه عبور وارد شده اشتباه می باشد')
-        context = {'form': form}
-        return render(request, 'user_panel_module/change_password_page.html', context)
+        return render(request, 'user_panel_module/change_password_page.html', {'form': form})
 
 
 @method_decorator(login_required, name='dispatch')
