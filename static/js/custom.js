@@ -1,3 +1,4 @@
+
 function sendArticleComment(articleId) {
     var comment = $('#commentText').val();
     var parentId = $('#parent_id').val();

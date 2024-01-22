@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-sm-9 padding-right">
                     {% if products %}
-                        <div class="features_items"><!--features_items-->
+                        <div class="features_items">
                             <h2 class="title text-center">محصولات</h2>
                             {% for product in products %}
                                 {% include 'includes/product_item_partial.html' with product=product col_size=4 %}
@@ -29,18 +29,16 @@
                                     <li><a class="cursor-pointer" onclick="fillPage({{ page_obj.next_page_number }})">بعدی</a></li>
                                 {% endif %}
                             </ul>
-                        </div><!--features_items-->
-                    {% else %}
-                        <div class="alert alert-warning">
-                            <p>هیچ محصولی یافت نشد</p>
                         </div>
+                    {% else %}
+                        <div class="alert alert-warning"><p>هیچ محصولی یافت نشد</p></div>
                     {% endif %}
                 </div>
                 <div class="col-sm-3">
                     <div class="left-sidebar">
                         {% render_partial 'product_module.views.product_categories_component' %}
                         {% render_partial 'product_module.views.product_brands_component' %}
-                        <div class="price-range"><!--price-range-->
+                        <div class="price-range">
                             <h2>فیلتـر قیمـت</h2>
                             <div class="well">
                                 <input type="text" class="span2" value="{{ start_price }},{{ end_price }}"
@@ -49,7 +47,7 @@
                                 <br/>
                                 <b>{{ db_max_price }}</b> <b class="pull-left">0</b>
                             </div>
-                        </div><!--/price-range-->
+                        </div>
                         <div>
                             <form action="" method="get" id="filter_form">
                                 <input type="hidden" name="page" id="page" value="{{ page_obj.number }}">
@@ -58,15 +56,13 @@
                             </form>
                             <button class="btn btn-success btn-block" onclick="filterProducts()">فیلتر</button>
                         </div>
-                        <div class="shipping text-center"><!--shipping-->
+                        <div class="shipping text-center">
                             {% for banner in banners %}
-                                <a href="{{ banner.url }}">
-                                    <img src="{{ banner.image.url }}" alt="">
-                                </a>
+                                <a href="{{ banner.url }}"><img src="{{ banner.image.url }}" alt="{{ banner.image.name }}"></a>
                             {% endfor %}
                             <br>
                             <br>
-                        </div><!--/shipping-->
+                        </div>
                     </div>
                 </div>
             </div>
