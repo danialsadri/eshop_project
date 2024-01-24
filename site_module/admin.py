@@ -32,6 +32,6 @@ class SliderAdmin(admin.ModelAdmin):
 
 @admin.register(SiteBanner)
 class SiteBannerAdmin(admin.ModelAdmin):
-    list_display = ['position', 'title', 'is_active']
+    list_display = ['position', 'title', 'url', 'is_active']
     list_filter = ['is_active']
     search_fields = ['title']
