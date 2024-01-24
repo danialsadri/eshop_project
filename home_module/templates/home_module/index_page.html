@@ -42,7 +42,8 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="recommended_items"><!--NewProduct_items-->
+                <!--NewProduct_items-->
+                <div class="recommended_items">
                     <h2 class="title text-center">جدیدترین محصولات</h2>
                     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
@@ -61,9 +62,11 @@
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </div>
-                </div><!--/NewProduct_items-->
+                </div>
+                <!--/NewProduct_items-->
                 <div class="col-sm-12 padding-right">
-                    <div class="features_items"><!--RetailSale_items-->
+                    <!--RetailSale_items-->
+                    <div class="features_items">
                         <a href="#"><h2 class="title text-center">پربازدیدترین محصولات</h2></a>
                         <div id="new-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
@@ -82,8 +85,10 @@
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </div>
-                    </div><!--RetailSale_items-->
-                    <div class="features_items"><!--RetailSale_items-->
+                    </div>
+                    <!--RetailSale_items-->
+                    <!--RetailSale_items-->
+                    <div class="features_items">
                         <a href="#"><h2 class="title text-center">پرفروش ترین محصولات</h2></a>
                         <div id="new-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
@@ -102,34 +107,37 @@
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </div>
-                    </div><!--RetailSale_items-->
-                    <div class="category-tab"><!--category-tab-->
+                    </div>
+                    <!--RetailSale_items-->
+                    <!--category-tab-->
+                    <div class="category-tab">
                         <div class="col-sm-12">
                             <ul class="nav nav-tabs">
                                 {% for categories_product in categories_products %}
-                                    <li class="{% if forloop.first %} active {% endif %}"><a
-                                            href="#Tab_{{ categories_product.id }}"
-                                            data-toggle="tab">{{ categories_product.title }}</a></li>
+                                    <li class="{% if forloop.first %} active {% endif %}">
+                                        <a href="#Tab_{{ categories_product.id }}" data-toggle="tab">{{ categories_product.title }}</a>
+                                    </li>
                                 {% endfor %}
                             </ul>
                         </div>
                         <div class="tab-content">
                             {% for categories_product in categories_products %}
-                                <div class="tab-pane fade {% if forloop.first %}active in{% endif %}"
-                                     id="Tab_{{ categories_product.id }}">
+                                <div class="tab-pane fade {% if forloop.first %}active in{% endif %}" id="Tab_{{ categories_product.id }}">
                                     {% for product in categories_product.products %}
                                         <div class="col-sm-3">
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        {% thumbnail product.image "268x250" quality=90 crop='center' as im %}
-                                                            <img src="{{ im.url }}">
-                                                        {% endthumbnail %}
+                                                        {% if product.image %}
+                                                            {% thumbnail product.image "268x250" quality=90 crop='center' as img %}
+                                                                <img src="{{ img.url }}">
+                                                            {% endthumbnail %}
+                                                        {% else %}
+                                                            <img src="/static/images/shop/product.jpg" alt="">
+                                                        {% endif %}
                                                         <h2>{{ product.price | three_digits_currency }}</h2>
                                                         <p>{{ product.title }}</p>
-                                                        <a href="{{ product.get_absolute_url }}"
-                                                           class="btn btn-default add-to-cart"><i
-                                                                class="fa fa-shopping-cart"></i>نمایش محصول</a>
+                                                        <a href="{{ product.get_absolute_url }}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i> مشاهده جزییات</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -138,7 +146,8 @@
                                 </div>
                             {% endfor %}
                         </div>
-                    </div><!--/category-tab-->
+                    </div>
+                    <!--/category-tab-->
                 </div>
             </div>
         </div>

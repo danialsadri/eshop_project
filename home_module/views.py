@@ -11,10 +11,11 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['sliders'] = Slider.objects.filter(is_active=True)
+        sliders = Slider.objects.filter(is_active=True)
+        context['sliders'] = sliders
         latest_products = Product.objects.filter(is_active=True, is_delete=False).order_by('-id')[:12]
-        most_visit_products = Product.objects.filter(is_active=True, is_delete=False).annotate(visit_count=Count('visits')).order_by('-visit_count')[:12]
         context['latest_products'] = group_list(latest_products)
+        most_visit_products = Product.objects.filter(is_active=True, is_delete=False).annotate(visit_count=Count('visits')).order_by('-visit_count')[:12]
         context['most_visit_products'] = group_list(most_visit_products)
         categories = list(ProductCategory.objects.annotate(products_count=Count('product_categories')).filter(is_active=True, is_delete=False, products_count__gt=0)[:6])
         categories_products = []
