@@ -63,10 +63,9 @@ class ProductDetailView(DetailView):
         user_id = None
         if self.request.user.is_authenticated:
             user_id = self.request.user.id
-        has_been_visited = ProductVisit.objects.filter(ip__iexact=user_ip, product_id=loaded_product.id).exists()
+        has_been_visited = ProductVisit.objects.filter(product_id=loaded_product.id, ip__iexact=user_ip).exists()
         if not has_been_visited:
-            new_visit = ProductVisit(ip=user_ip, user_id=user_id, product_id=loaded_product.id)
-            new_visit.save()
+            ProductVisit.objects.create(product_id=loaded_product.id, user_id=user_id, ip=user_ip)
         return context
 
 
