@@ -1,4 +1,3 @@
-
 function sendArticleComment(articleId) {
     var comment = $('#commentText').val();
     var parentId = $('#parent_id').val();
@@ -44,7 +43,7 @@ function showLargeImage(imageSrc) {
 
 function addProductToOrder(productId) {
     const productCount = $('#product-count').val();
-    $.get('/order/add-to-order?product_id=' + productId + '&count=' + productCount).then(res => {
+    $.get('/orders/add-to-order?product_id=' + productId + '&count=' + productCount).then(res => {
         Swal.fire({
             title: 'اعلان',
             text: res.text,
@@ -54,14 +53,14 @@ function addProductToOrder(productId) {
             confirmButtonText: res.confirm_button_text
         }).then((result) => {
             if (result.isConfirmed && res.status === 'not_auth') {
-                window.location.href = '/login';
+                window.location.href = 'accounts/login';
             }
         });
     });
 }
 
 function removeOrderDetail(detailId) {
-    $.get('/user/remove-order-detail?detail_id=' + detailId).then(res => {
+    $.get('/users/remove-order-detail?detail_id=' + detailId).then(res => {
         if (res.status === 'success') {
             $('#order-detail-content').html(res.body);
         }
@@ -72,7 +71,7 @@ function removeOrderDetail(detailId) {
 // detail id => order detail id
 // state => increase , decrease
 function changeOrderDetailCount(detailId, state) {
-    $.get('/user/change-order-detail?detail_id=' + detailId + '&state=' + state).then(res => {
+    $.get('/users/change-order-detail?detail_id=' + detailId + '&state=' + state).then(res => {
         if (res.status === 'success') {
             $('#order-detail-content').html(res.body);
         }

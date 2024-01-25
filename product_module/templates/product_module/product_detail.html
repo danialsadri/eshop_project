@@ -23,16 +23,11 @@
                         <div class="col-sm-5">
                             <div class="view-product">
                                 {% if product.image %}
-                                    <img src="{{ product.image.url }}" alt="" id="main_image">
+                                    <img src="{{ product.image.url }}" alt="product details" id="main_image">
                                 {% else %}
-                                    <img src="/static/images/product-details/1.jpg" alt="" id="main_image">
+                                    <img src="/static/images/product-details/1.jpg" alt="product details" id="main_image">
                                 {% endif %}
-                                <h3>
-                                    <a style="color:white" id="show_large_image_modal" href="{{ product.image.url }}"
-                                       data-lightbox="product-image">
-                                        بزرگنمایـی
-                                    </a>
-                                </h3>
+                                <h3><a style="color:white" id="show_large_image_modal" href="{{ product.image.url }}" data-lightbox="product-image">بزرگنمایـی</a></h3>
                             </div>
                             <div id="similar-product" class="carousel slide" data-ride="carousel">
                                 <!-- Wrapper for slides -->
@@ -40,20 +35,14 @@
                                     {% for group in product_galleries_group %}
                                         <div class="item {% if forloop.first %}active{% endif %}">
                                             {% for gallery in group %}
-                                                <a onclick="showLargeImage('{{ gallery.image.url }}')">
-                                                    <img src="{{ gallery.image.url }}" width="75" height="75" alt="">
-                                                </a>
+                                                <a onclick="showLargeImage('{{ gallery.image.url }}')"><img src="{{ gallery.image.url }}" width="75" height="75" alt=""></a>
                                             {% endfor %}
                                         </div>
                                     {% endfor %}
                                 </div>
                                 <!-- Controls -->
-                                <a class="right item-control" href="#similar-product" data-slide="next">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                                <a class="left item-control" href="#similar-product" data-slide="prev">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
+                                <a class="right item-control" href="#similar-product" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                                <a class="left item-control" href="#similar-product" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                             </div>
                         </div>
                         <div class="col-sm-7">
@@ -71,7 +60,7 @@
                                     <span>
                                         <label>تعداد :</label>
 										<input type="number" min="1" value="1" class="search_box" id="product-count">
-										<button onclick="addProductToOrder({{ product.id }})" class="btn btn-fefault cart">
+										<button onclick="addProductToOrder({{ product.id }})" class="btn btn-default cart">
 											<i class="fa fa-shopping-cart"></i>
 											 افزودن به سبد خرید
 										</button>
@@ -126,9 +115,7 @@
 										</span>
                                         <textarea name=""></textarea>
                                         <b>رتبـه : </b> <img src="/static/images/product-details/rating.png" alt="">
-                                        <button type="button" class="btn btn-default pull-left">
-                                            ارسـال
-                                        </button>
+                                        <button type="button" class="btn btn-default pull-left">ارسـال</button>
                                     </form>
                                 </div>
                             </div>
@@ -149,14 +136,8 @@
                                 {% endfor %}
                             </div>
                             {% if related_products|length > 1 %}
-                                <a class="left recommended-item-control" href="#recommended-item-carousel"
-                                   data-slide="prev">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                                <a class="right recommended-item-control" href="#recommended-item-carousel"
-                                   data-slide="next">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
+                                <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                                <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
                             {% endif %}
                         </div>
                     </div>
@@ -168,7 +149,7 @@
                         {% render_partial 'product_module.views.product_brands_component' %}
                         <div class="shipping text-center">
                             {% for banner in banners %}
-                                <a href="{{ banner.url }}"><img src="{{ banner.image.url }}" alt=""></a>
+                                <a href="{{ banner.url }}"><img src="{{ banner.image.url }}" alt="{{ banner.image.name }}"></a>
                             {% endfor %}
                             <br>
                             <br>

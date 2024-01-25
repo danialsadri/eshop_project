@@ -52,8 +52,6 @@ class ProductDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         loaded_product = self.object
         request = self.request
-        favorite_product_id = request.session.get("product_favorites")
-        context['is_favorite'] = favorite_product_id == str(loaded_product.id)
         context['banners'] = SiteBanner.objects.filter(is_active=True, position__iexact=SiteBanner.SiteBannerPositions.product_detail)
         galleries = list(ProductGallery.objects.filter(product_id=loaded_product.id).all())
         galleries.insert(0, loaded_product)
@@ -67,14 +65,6 @@ class ProductDetailView(DetailView):
         if not has_been_visited:
             ProductVisit.objects.create(product_id=loaded_product.id, user_id=user_id, ip=user_ip)
         return context
-
-
-class AddProductFavorite(View):
-    def post(self, request):
-        product_id = request.POST["product_id"]
-        product = Product.objects.get(pk=product_id)
-        request.session["product_favorites"] = product_id
-        return redirect(product.get_absolute_url())
 
 
 def product_categories_component(request: HttpRequest):
