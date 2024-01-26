@@ -1,16 +1,16 @@
 {% extends 'shared/_layout.html' %}
 {% load render_partial %}
 {% load poll_extras %}
+{% load static %}
 
 {% block title %}{{ product.title }}{% endblock %}
 
 {% block header_references %}
-    <link href="/static/lib/image-lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="{% static 'lib/image-lightbox/css/lightbox.min.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block footer_references %}
-    <script src="/static/lib/image-lightbox/js/lightbox.min.js"></script>
-    {#    <script src="/static/lib/image-lightbox/js/lightbox-plus-jquery.min.js"></script>#}
+    <script src="{% static 'lib/image-lightbox/js/lightbox.min.js' %}"></script>
 {% endblock %}
 
 {% block content %}

@@ -116,8 +116,6 @@ class ProductGallery(models.Model):
 
     class Meta:
         ordering = ['product']
-        indexes = [
-            models.Index(fields=['product']),
-        ]
+        indexes = [models.Index(fields=['product'])]
         verbose_name = 'تصویر گالری'
         verbose_name_plural = 'گالری تصاویر'

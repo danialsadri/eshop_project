@@ -50,7 +50,7 @@ class ProductDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         loaded_product = self.object
-        request = self.request
+        request: HttpRequest = self.request
         context['banners'] = SiteBanner.objects.filter(is_active=True, position__iexact=SiteBanner.SiteBannerPositions.product_detail)
         galleries = list(ProductGallery.objects.filter(product_id=loaded_product.id).all())
         galleries.insert(0, loaded_product)
