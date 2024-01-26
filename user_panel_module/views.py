@@ -69,7 +69,7 @@ class MyShopping(ListView):
 
 @login_required
 def user_basket(request: HttpRequest):
-    current_order, created = Order.objects.prefetch_related('orderdetail_set').get_or_create(is_paid=False, user_id=request.user.id)
+    current_order, created = Order.objects.prefetch_related('order_details').get_or_create(is_paid=False, user_id=request.user.id)
     total_amount = current_order.calculate_total_price()
     context = {
         'order': current_order,
@@ -79,7 +79,7 @@ def user_basket(request: HttpRequest):
 
 
 def my_shopping_detail(request: HttpRequest, order_id):
-    order = Order.objects.prefetch_related('orderdetail_set').filter(id=order_id, user_id=request.user.id).first()
+    order = Order.objects.prefetch_related('order_details').filter(id=order_id, user_id=request.user.id).first()
     if order is None:
         raise Http404('سبد خرید مورد نظر یافت نشد')
     context = {'order': order}
@@ -94,7 +94,7 @@ def remove_order_detail(request):
     deleted_count, deleted_dict = OrderDetail.objects.filter(id=detail_id, order__is_paid=False, order__user_id=request.user.id).delete()
     if deleted_count == 0:
         return JsonResponse({'status': 'detail_not_found'})
-    current_order, created = Order.objects.prefetch_related('orderdetail_set').get_or_create(is_paid=False, user_id=request.user.id)
+    current_order, created = Order.objects.prefetch_related('order_details').get_or_create(is_paid=False, user_id=request.user.id)
     total_amount = current_order.calculate_total_price()
     context = {'order': current_order, 'sum': total_amount}
     return JsonResponse({'status': 'success', 'body': render_to_string('user_panel_module/user_basket_content.html', context)})
@@ -120,7 +120,7 @@ def change_order_detail_count(request: HttpRequest):
             order_detail.save()
     else:
         return JsonResponse({'status': 'state_invalid'})
-    current_order, created = Order.objects.prefetch_related('orderdetail_set').get_or_create(is_paid=False, user_id=request.user.id)
+    current_order, created = Order.objects.prefetch_related('order_details').get_or_create(is_paid=False, user_id=request.user.id)
     total_amount = current_order.calculate_total_price()
     context = {'order': current_order, 'sum': total_amount}
     return JsonResponse({'status': 'success', 'body': render_to_string('user_panel_module/user_basket_content.html', context)})

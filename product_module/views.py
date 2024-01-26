@@ -1,8 +1,7 @@
 from django.db.models import Count
 from django.http import HttpRequest
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from django.views.generic.base import View
 from site_module.models import SiteBanner
 from utils.convertors import group_list
 from utils.http_service import get_client_ip
