@@ -35,8 +35,7 @@ def add_product_to_order(request: HttpRequest):
                 current_order_detail.count += count
                 current_order_detail.save()
             else:
-                new_detail = OrderDetail(order_id=current_order.id, product_id=product_id, count=count)
-                new_detail.save()
+                OrderDetail.objects.create(order_id=current_order.id, product_id=product_id, count=count)
             context = {'status': 'success', 'text': 'محصول مورد نظر با موفقیت به سبد خرید شما اضافه شد', 'confirm_button_text': 'باشه ممنونم', 'icon': 'success'}
             return JsonResponse(context)
         else:

@@ -43,7 +43,7 @@ function showLargeImage(imageSrc) {
 
 function addProductToOrder(productId) {
     const productCount = $('#product-count').val();
-    $.get('/orders/add-to-order?product_id=' + productId + '&count=' + productCount).then(res => {
+    $.get('/orders/add-to-order/?product_id=' + productId + '&count=' + productCount).then(res => {
         Swal.fire({
             title: 'اعلان',
             text: res.text,
