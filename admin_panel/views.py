@@ -15,8 +15,8 @@ def index(request: HttpRequest):
 @method_decorator(permission_checker_decorator_factory({'permission_name': 'article_list'}), name='dispatch')
 class ArticlesListView(ListView):
     model = Article
-    paginate_by = 12
     template_name = 'admin_panel/articles/articles_list.html'
+    paginate_by = 12
 
     def get_context_data(self, *args, **kwargs):
         context = super(ArticlesListView, self).get_context_data(*args, **kwargs)
@@ -35,5 +35,4 @@ class ArticleEditView(UpdateView):
     model = Article
     template_name = 'admin_panel/articles/edit_article.html'
     fields = '__all__'
-    success_url = reverse_lazy('admin_articles')
-    # success_url = '/admin-panel/articles'
+    success_url = reverse_lazy('admin_panel:admin_articles')
