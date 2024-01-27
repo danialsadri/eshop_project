@@ -18,7 +18,7 @@
                         <th class="text-right">قیمت نهایی خرید</th>
                         <th class="text-right">دستورات</th>
                     </tr>
-                    {% for order in object_list %}
+                    {% for order in orders %}
                         <tr>
                             <td class="text-right">{{ order.id }}</td>
                             <td class="text-right"> {{ order.payment_date | show_jalali_date }}</td>

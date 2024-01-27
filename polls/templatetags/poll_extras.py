@@ -25,6 +25,6 @@ def three_digits_currency(value: int):
     return '{:,}'.format(value) + ' تومان'
 
 
-@register.simple_tag
+@register.simple_tag(name='multiply')
 def multiply(quantity, price, *args, **kwargs):
     return three_digits_currency(quantity * price)

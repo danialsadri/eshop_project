@@ -59,6 +59,7 @@ class ChangePasswordPage(View):
 class MyShopping(ListView):
     model = Order
     template_name = 'user_panel_module/user_shopping.html'
+    context_object_name = 'orders'
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -67,6 +68,7 @@ class MyShopping(ListView):
         return queryset
 
 
+@login_required
 def my_shopping_detail(request: HttpRequest, order_id):
     order = Order.objects.prefetch_related('order_details').filter(id=order_id, user_id=request.user.id).first()
     if order is None:
@@ -86,14 +88,17 @@ def user_basket(request: HttpRequest):
 def remove_order_detail(request):
     detail_id = request.GET.get('detail_id')
     if detail_id is None:
-        return JsonResponse({'status': 'not_found_detail_id'})
+        context = {'status': 'not_found_detail_id'}
+        return JsonResponse(context)
     deleted_count, deleted_dict = OrderDetail.objects.filter(id=detail_id, order__is_paid=False, order__user_id=request.user.id).delete()
     if deleted_count == 0:
-        return JsonResponse({'status': 'detail_not_found'})
+        context = {'status': 'detail_not_found'}
+        return JsonResponse(context)
     current_order, created = Order.objects.prefetch_related('order_details').get_or_create(is_paid=False, user_id=request.user.id)
     total_amount = current_order.calculate_total_price()
-    context = {'order': current_order, 'sum': total_amount}
-    return JsonResponse({'status': 'success', 'body': render_to_string('user_panel_module/user_basket_content.html', context)})
+    body = render_to_string(template_name='user_panel_module/user_basket_content.html', context={'order': current_order, 'sum': total_amount})
+    context = {'status': 'success', 'body': body}
+    return JsonResponse(context)
 
 
 @login_required

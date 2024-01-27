@@ -3,12 +3,6 @@
 {% if order.order_details.all %}
     <section id="cart_items">
         <div class="container">
-            <div class="breadcrumbs">
-                <ol class="breadcrumb">
-                    <li><a href="#">خانـه</a></li>
-                    <li class="active">پرداخت</li>
-                </ol>
-            </div>
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
@@ -25,10 +19,10 @@
                     {% for detail in order.order_details.all %}
                         <tr>
                             <td class="cart_product">
-                                <a href=""><img src="{{ detail.product.image.url }}" width="75" alt=""></a>
+                                <a href="{{ detail.product.get_absolute_url }}"><img src="{{ detail.product.image.url }}" width="75" alt="image"></a>
                             </td>
                             <td class="cart_description">
-                                <h4><a href="" class="one-line-text">{{ detail.product.title }}</a></h4>
+                                <h4><a href="{{ detail.product.get_absolute_url }}" class="one-line-text">{{ detail.product.title }}</a></h4>
                                 <p>شناسـه : {{ detail.product.id }}</p>
                             </td>
                             <td class="cart_price">
@@ -42,8 +36,7 @@
                                 </div>
                             </td>
                             <td class="cart_total">
-                                <p class="cart_total_price"> {% multiply detail.count detail.product.price %} </p>
-                                {# <p class="cart_total_price"> {{ detail.get_total_price|three_digits_currency }} </p>#}
+                                 <p class="cart_total_price"> {{ detail.get_total_price|three_digits_currency }} </p>
                             </td>
                             <td class="cart_delete">
                                 <a class="cart_quantity_delete" onclick="removeOrderDetail({{ detail.id }})"><i class="fa fa-times"></i></a>
