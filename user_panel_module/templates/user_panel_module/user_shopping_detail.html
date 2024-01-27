@@ -18,7 +18,7 @@
                         <th class="text-right">تعداد</th>
                         <th class="text-right">قیمت نهایی خرید</th>
                     </tr>
-                    {% for detail in order.orderdetail_set.all %}
+                    {% for detail in order.order_details.all %}
                         <tr>
                             <td class="text-right">{{ detail.id }}</td>
                             <td class="text-right">{{ detail.product.title }}</td>

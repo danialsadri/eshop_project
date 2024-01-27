@@ -1,6 +1,6 @@
 {% load poll_extras %}
 
-{% if order.orderdetail_set.all %}
+{% if order.order_details.all %}
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
@@ -22,7 +22,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for detail in order.orderdetail_set.all %}
+                    {% for detail in order.order_details.all %}
                         <tr>
                             <td class="cart_product">
                                 <a href=""><img src="{{ detail.product.image.url }}" width="75" alt=""></a>

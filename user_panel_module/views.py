@@ -67,23 +67,19 @@ class MyShopping(ListView):
         return queryset
 
 
-@login_required
-def user_basket(request: HttpRequest):
-    current_order, created = Order.objects.prefetch_related('order_details').get_or_create(is_paid=False, user_id=request.user.id)
-    total_amount = current_order.calculate_total_price()
-    context = {
-        'order': current_order,
-        'sum': total_amount
-    }
-    return render(request, 'user_panel_module/user_basket.html', context)
-
-
 def my_shopping_detail(request: HttpRequest, order_id):
     order = Order.objects.prefetch_related('order_details').filter(id=order_id, user_id=request.user.id).first()
     if order is None:
         raise Http404('سبد خرید مورد نظر یافت نشد')
-    context = {'order': order}
-    return render(request, 'user_panel_module/user_shopping_detail.html', context)
+    return render(request, 'user_panel_module/user_shopping_detail.html', {'order': order})
+
+
+@login_required
+def user_basket(request: HttpRequest):
+    current_order, created = Order.objects.prefetch_related('order_details').get_or_create(is_paid=False, user_id=request.user.id)
+    total_amount = current_order.calculate_total_price()
+    context = {'order': current_order, 'sum': total_amount}
+    return render(request, 'user_panel_module/user_basket.html', context)
 
 
 @login_required
