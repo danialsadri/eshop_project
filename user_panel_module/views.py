@@ -106,10 +106,12 @@ def change_order_detail_count(request: HttpRequest):
     detail_id = request.GET.get('detail_id')
     state = request.GET.get('state')
     if detail_id is None or state is None:
-        return JsonResponse({'status': 'not_found_detail_or_state'})
+        context = {'status': 'not_found_detail_or_state'}
+        return JsonResponse(context)
     order_detail = OrderDetail.objects.filter(id=detail_id, order__user_id=request.user.id, order__is_paid=False).first()
     if order_detail is None:
-        return JsonResponse({'status': 'detail_not_found'})
+        context = {'status': 'detail_not_found'}
+        return JsonResponse(context)
     if state == 'increase':
         order_detail.count += 1
         order_detail.save()
@@ -120,11 +122,13 @@ def change_order_detail_count(request: HttpRequest):
             order_detail.count -= 1
             order_detail.save()
     else:
-        return JsonResponse({'status': 'state_invalid'})
+        context = {'status': 'state_invalid'}
+        return JsonResponse(context)
     current_order, created = Order.objects.prefetch_related('order_details').get_or_create(is_paid=False, user_id=request.user.id)
     total_amount = current_order.calculate_total_price()
-    context = {'order': current_order, 'sum': total_amount}
-    return JsonResponse({'status': 'success', 'body': render_to_string('user_panel_module/user_basket_content.html', context)})
+    body = render_to_string(template_name='user_panel_module/user_basket_content.html', context={'order': current_order, 'sum': total_amount})
+    context = {'status': 'success', 'body': body}
+    return JsonResponse(context)
 
 
 @login_required
