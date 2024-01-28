@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views.generic import DetailView
@@ -40,6 +41,7 @@ class ArticleDetailView(DetailView):
         return query
 
 
+@login_required
 def add_article_comment(request: HttpRequest):
     if request.user.is_authenticated:
         article_id = request.GET.get('article_id')

@@ -1,8 +1,10 @@
 from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpRequest
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.crypto import get_random_string
+from django.utils.decorators import method_decorator
 from django.views import View
 from account_module.forms import RegisterForm, LoginForm, ForgotPasswordForm, ResetPasswordForm
 from utils.email_service import send_email
@@ -112,7 +114,8 @@ class ResetPasswordView(View):
         return render(request, 'account_module/reset_password.html', {'reset_pass_form': reset_pass_form, 'user': user})
 
 
+@method_decorator(login_required, name='dispatch')
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect(reverse('accounts:login_page'))
+        return redirect(reverse('home:home_page'))
