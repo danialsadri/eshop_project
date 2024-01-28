@@ -1,8 +1,6 @@
 {% extends 'admin_panel/shared/_admin_layout.html' %}
 
-{% block title %}
-    صفحه اصلی ادمین
-{% endblock %}
+{% block title %}صفحه لیست مقاله{% endblock %}
 
 {% block content %}
     <div class="row">
@@ -14,7 +12,7 @@
                         <th>وضعیت</th>
                         <th>دستورات</th>
                     </tr>
-                    {% for article in object_list %}
+                    {% for article in articles %}
                         <tr>
                             <td>{{ article.title }}</td>
                             <td>
@@ -24,13 +22,9 @@
                                     <span class="text-danger">غیرفعال</span>
                                 {% endif %}
                             </td>
-                            <td>
-                                <a href="{% url 'admin_edit_article' pk=article.id %}" class="btn btn-warning">ویرایش
-                                    محصول</a>
-                            </td>
+                            <td><a href="{% url 'admin_panel:article_edit_admin' pk=article.id %}" class="btn btn-info">ویرایش محصول</a></td>
                         </tr>
                     {% endfor %}
-
                 </table>
             </div>
         </div>

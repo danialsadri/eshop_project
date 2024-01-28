@@ -1,0 +1,15 @@
+<div class="page-sidebar" id="sidebar">
+    <ul class="nav sidebar-menu">
+        <li>
+            <a href="{% url 'admin_panel:home_admin' %}"><i class="menu-icon glyphicon glyphicon-home"></i><span class="menu-text">داشبورد</span></a>
+        </li>
+        <li>
+            <a href="#" class="menu-dropdown"><i class="menu-icon fa fa-desktop"></i><span class="menu-text">مدیریت مقالات</span><i class="menu-expand"></i></a>
+            <ul class="submenu">
+                <li>
+                    <a href="{% url 'admin_panel:article_list_admin' %}"><span class="menu-text">لیست مقالات</span></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
