@@ -33,22 +33,6 @@ class RegisterView(View):
         return render(request, 'account_module/register.html', {'register_form': register_form})
 
 
-class ActivateAccountView(View):
-    def get(self, request, email_active_code):
-        user: User = User.objects.filter(email_active_code__iexact=email_active_code).first()
-        if user is not None:
-            if not user.is_active:
-                user.is_active = True
-                user.email_active_code = get_random_string(72)
-                user.save()
-                # todo: show success message to user
-                return redirect(reverse('accounts:login_page'))
-            else:
-                # todo: show your account was activated message to user
-                pass
-        raise Http404
-
-
 class LoginView(View):
     def get(self, request):
         login_form = LoginForm()
@@ -73,6 +57,29 @@ class LoginView(View):
             else:
                 login_form.add_error('email', 'کاربری با مشخصات وارد شده یافت نشد')
         return render(request, 'account_module/login.html', {'login_form': login_form})
+
+
+class ActivateAccountView(View):
+    def get(self, request, email_active_code):
+        user: User = User.objects.filter(email_active_code__iexact=email_active_code).first()
+        if user is not None:
+            if not user.is_active:
+                user.is_active = True
+                user.email_active_code = get_random_string(72)
+                user.save()
+                # todo: show success message to user
+                return redirect(reverse('accounts:login_page'))
+            else:
+                # todo: show your account was activated message to user
+                pass
+        raise Http404
+
+
+@method_decorator(login_required, name='dispatch')
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect(reverse('home:home_page'))
 
 
 class ForgetPasswordView(View):
@@ -112,10 +119,3 @@ class ResetPasswordView(View):
             user.save()
             return redirect(reverse('home:home_page'))
         return render(request, 'account_module/reset_password.html', {'reset_pass_form': reset_pass_form, 'user': user})
-
-
-@method_decorator(login_required, name='dispatch')
-class LogoutView(View):
-    def get(self, request):
-        logout(request)
-        return redirect(reverse('home:home_page'))

@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'article_module.apps.ArticleModuleConfig',
     'user_panel_module.apps.UserPanelModuleConfig',
     'order_module.apps.OrderModuleConfig',
-    'admin_panel.apps.AdminPanelConfig',
     'polls.apps.PollsConfig',
     # external apps
     'django_render_partial',
