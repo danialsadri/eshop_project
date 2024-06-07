@@ -1,26 +1,12 @@
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-9qts1=s)$ky8o%%_$_#j#dmb106oas2_-n6shcfp$yg2g@uxny'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-# Application definition
-INSTALLED_APPS = [
-    'admin_persian',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    # internal apps
+LOCAL_APPS = [
     'account_module.apps.AccountModuleConfig',
     'home_module.apps.HomeModuleConfig',
     'product_module.apps.ProductModuleConfig',
@@ -30,11 +16,25 @@ INSTALLED_APPS = [
     'user_panel_module.apps.UserPanelModuleConfig',
     'order_module.apps.OrderModuleConfig',
     'polls.apps.PollsConfig',
-    # external apps
+]
+
+THIRD_PARTY_APPS = [
     'django_render_partial',
     'sorl.thumbnail',
     'jalali_date',
-    'widget_tweaks'
+    'widget_tweaks',
+]
+
+INSTALLED_APPS = [
+    'admin_persian',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    *LOCAL_APPS,
+    *THIRD_PARTY_APPS,
 ]
 
 MIDDLEWARE = [
@@ -46,8 +46,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-ROOT_URLCONF = 'eshop_project.urls'
 
 TEMPLATES = [
     {
@@ -65,9 +63,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'eshop_project.wsgi.application'
-
-# Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -75,7 +70,6 @@ DATABASES = {
     }
 }
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -91,37 +85,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
-LANGUAGE_CODE = 'fa-IR'
-TIME_ZONE = 'Asia/Tehran'
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
-
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'uploads'
-
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# user
-AUTH_USER_MODEL = 'account_module.User'
-LOGIN_URL = '/accounts/login/'
-LOGOUT_URL = '/accounts/logout/'
-
-# email backend
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = '***'
-EMAIL_HOST_PASSWORD = '***'
-EMAIL_PORT = 587
-
-# jalali date defaults
 JALALI_DATE_DEFAULTS = {
     'Strftime': {
         'date': '%y/%m/%d',
@@ -146,7 +109,57 @@ JALALI_DATE_DEFAULTS = {
     },
 }
 
-# zarinpal
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': 'warning.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'propagate': True,
+        },
+    },
+}
+
+LANGUAGE_CODE = 'fa-IR'
+TIME_ZONE = 'Asia/Tehran'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
+STATIC_ROOT = BASE_DIR / 'static'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ROOT_URLCONF = 'eshop_project.urls'
+WSGI_APPLICATION = 'eshop_project.wsgi.application'
+
+AUTH_USER_MODEL = 'account_module.User'
+LOGIN_URL = '/accounts/login/'
+LOGOUT_URL = '/accounts/logout/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '***'
+EMAIL_HOST_PASSWORD = '***'
+EMAIL_PORT = 587
+
 MERCHANT = '***'
 ZP_API_REQUEST = 'https://api.zarinpal.com/pg/v4/payment/request.json'
 ZP_API_VERIFY = 'https://api.zarinpal.com/pg/v4/payment/verify.json'
